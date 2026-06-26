@@ -1,0 +1,17 @@
+{
+  "years": [
+    { "year": 2025, "uco": 500000, "biodiesel": 425000, "carbon": 969000 },
+    { "year": 2026, "uco": 553000, "biodiesel": 470050, "carbon": 1071714 },
+    { "year": 2027, "uco": 611000, "biodiesel": 519350, "carbon": 1184118 },
+    { "year": 2028, "uco": 675000, "biodiesel": 573750, "carbon": 1308150 },
+    { "year": 2029, "uco": 746000, "biodiesel": 634100, "carbon": 1445748 },
+    { "year": 2030, "uco": 824000, "biodiesel": 700400, "carbon": 1596912 },
+    { "year": 2031, "uco": 910000, "biodiesel": 773500, "carbon": 1763580 },
+    { "year": 2032, "uco": 1005000, "biodiesel": 854250, "carbon": 1947690 },
+    { "year": 2033, "uco": 1110000, "biodiesel": 943500, "carbon": 2151180 },
+    { "year": 2034, "uco": 1226000, "biodiesel": 1042100, "carbon": 2375988 },
+    { "year": 2035, "uco": 1354000, "biodiesel": 1150900, "carbon": 2624052 }
+  ],
+  "baseYear": 2025,
+  "growthRate": 0.105
+}
