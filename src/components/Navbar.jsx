@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
-  { label: "Masalah", href: "#problem" },
-  { label: "Cara Kerja", href: "#how-it-works" },
+  { label: "Latar Belakang", href: "#problem" },
+  { label: "Cara Membaca", href: "#how-it-works" },
   { label: "Peta Dampak", href: "#map" },
-  { label: "Kalkulator", href: "#calculator" },
-  { label: "Cerita", href: "#stories" },
+  { label: "Peringkat", href: "#leaderboard" },
+  { label: "Simulasi", href: "#simulation" },
 ];
 
 function scrollTo(href) {
@@ -36,17 +36,17 @@ export default function Navbar() {
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="flex items-center gap-3 text-left"
-          aria-label="UCOnnect Home"
+          aria-label="Atlas Jelantah Indonesia"
         >
           <span className="flex h-7 w-7 items-center justify-center bg-[#FF6900] text-[14px] font-bold text-white">
-            R
+            A
           </span>
           <div>
             <div className="text-[16px] font-bold leading-5 text-[#191919]">
-              UCOnnect
+              Atlas Jelantah Indonesia
             </div>
             <div className="hidden text-[12px] leading-4 text-[#303030] md:block">
-              Platform energi sirkular
+              Visualisasi konsumsi, potensi jelantah, dan estimasi dampak
             </div>
           </div>
         </button>
@@ -64,17 +64,6 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-
-        <div className="hidden md:block">
-          <button
-            type="button"
-            onClick={() => scrollTo("#cta")}
-            className="button-primary"
-          >
-            Gabung Gerakan
-          </button>
-        </div>
-
         <button
           type="button"
           className="flex h-11 w-11 items-center justify-center border border-[#E8E8E8] bg-white md:hidden"
@@ -126,16 +115,6 @@ export default function Navbar() {
                   </li>
                 ))}
               </ul>
-              <button
-                type="button"
-                onClick={() => {
-                  scrollTo("#cta");
-                  setMenuOpen(false);
-                }}
-                className="button-primary mt-4 w-full"
-              >
-                Gabung Gerakan
-              </button>
             </div>
           </motion.div>
         )}

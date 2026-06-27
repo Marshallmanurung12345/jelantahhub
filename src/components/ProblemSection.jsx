@@ -35,12 +35,12 @@ export default function ProblemSection() {
           transition={{ duration: 0.5 }}
           className="max-w-[760px]"
         >
-          <span className="section-eyebrow">The problem</span>
-          <h2 className="section-title">Why used cooking oil deserves attention</h2>
+          <span className="section-eyebrow">Latar belakang</span>
+          <h2 className="section-title">Mengapa minyak jelantah perlu diperhatikan</h2>
           <p className="section-subtitle">
-            Landing page ini perlu menjelaskan urgensi dengan bahasa visual yang
-            lugas: masalah lingkungan jelas, peluang energinya nyata, dan aksi
-            penggunanya terlihat masuk akal.
+            Bagian ini memberi konteks dasar mengenai dampak lingkungan dan
+            besarnya potensi energi yang sering tidak terlihat dalam konsumsi
+            minyak goreng sehari-hari.
           </p>
         </motion.div>
 

@@ -2,13 +2,13 @@ const footerLinks = {
   Jelajahi: [
     { label: "Beranda", href: "#hero" },
     { label: "Peta Dampak", href: "#map" },
-    { label: "Kalkulator", href: "#calculator" },
+    { label: "Peringkat", href: "#leaderboard" },
     { label: "Simulasi", href: "#simulation" },
   ],
   Informasi: [
-    { label: "Cara Kerja", href: "#how-it-works" },
-    { label: "Cerita", href: "#stories" },
-    { label: "Ajakan Aksi", href: "#cta" },
+    { label: "Cara Membaca", href: "#how-it-works" },
+    { label: "Potensi Energi", href: "#journey" },
+    { label: "Ringkasan", href: "#cta" },
   ],
 };
 
@@ -25,19 +25,18 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3">
               <span className="flex h-8 w-8 items-center justify-center bg-[#FF6900] text-[14px] font-bold text-white">
-                R
+                A
               </span>
               <div>
-                <div className="text-[16px] font-bold text-[#191919]">UCOnnect</div>
+                <div className="text-[16px] font-bold text-[#191919]">
+                  Atlas Jelantah Indonesia
+                </div>
                 <div className="text-[14px] text-[#303030]">
-                  Mengubah minyak jelantah menjadi energi bersih
+                  Visualisasi konsumsi minyak goreng, potensi minyak jelantah,
+                  dan estimasi dampaknya di Indonesia
                 </div>
               </div>
             </div>
-            <p className="mt-5 max-w-[420px] text-[14px] leading-[1.7] text-[#303030]">
-              Footer disederhanakan agar tetap bersih dan konsisten dengan desain
-              baru, sambil mempertahankan struktur navigasi yang mudah dipakai.
-            </p>
           </div>
 
           {Object.entries(footerLinks).map(([title, links]) => (
@@ -62,7 +61,6 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-3 pt-6 text-[14px] text-[#303030] md:flex-row md:items-center md:justify-between">
-          <p>© 2026 UCOnnect. Dibangun untuk cerita energi sirkular.</p>
           <p>Referensi data: Susenas BPS, RED II EU, IPCC, WHO.</p>
         </div>
       </div>

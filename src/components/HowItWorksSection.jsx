@@ -3,27 +3,27 @@ import { motion } from "framer-motion";
 const steps = [
   {
     number: "01",
-    title: "Collect",
+    title: "Konsumsi minyak goreng",
     description:
-      "Rumah tangga dan UMKM mengumpulkan jelantah agar tidak berakhir di saluran pembuangan.",
+      "Angka konsumsi per kapita per minggu menjadi dasar pembacaan awal untuk melihat intensitas penggunaan minyak goreng di suatu wilayah.",
   },
   {
     number: "02",
-    title: "Aggregate",
+    title: "Estimasi potensi jelantah",
     description:
-      "Bank jelantah, pengepul, atau komunitas menjadi titik pengumpulan yang lebih efisien.",
+      "Dari konsumsi tersebut, visualisasi menurunkan perkiraan volume minyak jelantah yang berpotensi tersedia sebagai limbah sisa pakai.",
   },
   {
     number: "03",
-    title: "Process",
+    title: "Estimasi biodiesel",
     description:
-      "Jelantah diproses menjadi biodiesel dengan kualitas yang bisa dimanfaatkan kembali.",
+      "Potensi jelantah kemudian diterjemahkan ke estimasi volume biodiesel melalui asumsi konversi yang sama di seluruh wilayah.",
   },
   {
     number: "04",
-    title: "Measure impact",
+    title: "Estimasi reduksi emisi",
     description:
-      "Platform menampilkan potensi biodiesel, emisi yang bisa dikurangi, dan sebaran wilayahnya.",
+      "Dari estimasi biodiesel, visualisasi menampilkan perkiraan reduksi emisi untuk memberi gambaran dampak lingkungan pada level wilayah.",
   },
 ];
 
@@ -38,11 +38,12 @@ export default function HowItWorksSection() {
           transition={{ duration: 0.5 }}
           className="max-w-[760px]"
         >
-          <span className="section-eyebrow">How it works</span>
-          <h2 className="section-title">A simple flow from kitchen waste to clean fuel</h2>
+          <span className="section-eyebrow">Panduan baca</span>
+          <h2 className="section-title">Cara Membaca Visualisasi Ini</h2>
           <p className="section-subtitle">
-            Alih-alih timeline dekoratif, section ini dibuat seperti langkah
-            produk digital: singkat, tegas, dan mudah dipindai di desktop maupun mobile.
+            Empat indikator utama di bawah ini dipakai untuk membaca hubungan
+            antara konsumsi minyak goreng, potensi minyak jelantah, biodiesel,
+            dan estimasi reduksi emisi.
           </p>
         </motion.div>
 
@@ -61,7 +62,7 @@ export default function HowItWorksSection() {
                   {step.number}
                 </span>
                 <span className="text-[12px] uppercase tracking-[0.12em] text-[#FF6900]">
-                  Alur UCOnnect
+                  Indikator
                 </span>
               </div>
               <h3 className="mt-5 text-[16px] font-bold text-[#191919]">
@@ -74,23 +75,12 @@ export default function HowItWorksSection() {
           ))}
         </div>
 
-        <div className="mt-8 surface-card grid gap-4 p-5 md:grid-cols-[1fr_auto] md:items-center md:p-6">
+        <div className="mt-8 surface-card p-5 md:p-6">
           <p className="text-[14px] leading-[1.6] text-[#303030]">
-            Nilai desain yang diambil dari brief terasa di sini: whitespace luas,
-            sharp container, dan aksen oranye hanya dipakai untuk sinyal tindakan
-            atau penekanan.
+            Seluruh angka pada halaman ini bersifat informatif dan dibangun dari
+            asumsi simulasi yang konsisten, sehingga cocok dipakai untuk melihat
+            pola umum antarwilayah, bukan untuk pembacaan operasional yang sangat rinci.
           </p>
-          <button
-            type="button"
-            onClick={() =>
-              document
-                .getElementById("calculator")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="button-accent"
-          >
-            Calculate Impact
-          </button>
         </div>
       </div>
     </section>

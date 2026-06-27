@@ -13,46 +13,33 @@ export default function CTASection() {
         >
           <div className="bg-[#191919] p-6 md:p-10">
             <div className="text-[12px] uppercase tracking-[0.16em] text-white/60">
-              CTA penutup
+              Ringkasan
             </div>
             <h2 className="mt-4 max-w-[720px] text-[30px] font-bold leading-[1.2] text-white md:text-[42px]">
-              Setiap tetes bisa menggerakkan masa depan saat pengumpulannya terlihat dan mudah ditindaklanjuti.
+              Ringkasan Temuan Utama
             </h2>
             <p className="mt-5 max-w-[560px] text-[14px] leading-[1.7] text-white/72">
-              Penutup halaman saya buat lebih tegas dan product-like: kontras tinggi,
-              aksen oranye yang fokus, dan dua CTA yang langsung mengarahkan pengguna
-              ke aksi berikutnya.
+              Konsumsi minyak goreng dapat dibaca sebagai indikator awal untuk
+              memahami potensi minyak jelantah, kemungkinan keluaran biodiesel,
+              dan gambaran reduksi emisi di berbagai wilayah Indonesia.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={() =>
-                  document
-                    .getElementById("calculator")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="button-accent"
-              >
-                Hitung Dampak Anda
-              </button>
-              <button
-                type="button"
-                onClick={() =>
-                  document
-                    .getElementById("map")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="inline-flex h-9 items-center justify-center border border-white/20 px-5 text-[14px] text-white transition-colors hover:bg-white hover:text-[#191919]"
-              >
-                Jelajahi Peta
-              </button>
+            <div className="mt-8 grid gap-px border border-white/10 bg-white/10">
+              {[
+                "Wilayah dengan konsumsi lebih tinggi cenderung menunjukkan potensi jelantah yang lebih besar.",
+                "Estimasi biodiesel dan reduksi emisi diturunkan dari asumsi yang seragam agar perbandingan wilayah tetap konsisten.",
+                "Peta interaktif dan peringkat wilayah membantu pembacaan pola spasial secara cepat.",
+              ].map((item) => (
+                <div key={item} className="bg-[#111111] px-4 py-4 text-[14px] leading-[1.6] text-white/78">
+                  {item}
+                </div>
+              ))}
             </div>
           </div>
 
           <div className="bg-[#111111] p-6 md:p-8">
             <div className="text-[12px] uppercase tracking-[0.16em] text-white/60">
-              Ringkasan
+              Gambaran umum nasional
             </div>
             <div className="mt-5 grid gap-px border border-white/10 bg-white/10">
               {[

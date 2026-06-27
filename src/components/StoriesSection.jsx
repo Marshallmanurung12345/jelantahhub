@@ -43,10 +43,6 @@ export default function StoriesSection() {
         >
           <span className="section-eyebrow">Cerita komunitas</span>
           <h2 className="section-title">Bukti manusia di balik data</h2>
-          <p className="section-subtitle">
-            Saya ubah section testimonial menjadi lebih editorial dan tidak terlalu
-            dekoratif, supaya tetap selaras dengan bahasa visual landing page yang baru.
-          </p>
         </motion.div>
 
         <div className="mt-10 grid gap-px border border-[#E8E8E8] bg-[#E8E8E8] lg:grid-cols-3">
@@ -64,8 +60,12 @@ export default function StoriesSection() {
                   <h3 className="text-[16px] font-bold text-[#191919]">
                     {story.name}
                   </h3>
-                  <p className="mt-1 text-[14px] text-[#303030]">{story.role}</p>
-                  <p className="mt-1 text-[14px] text-[#AEAEAE]">{story.location}</p>
+                  <p className="mt-1 text-[14px] text-[#303030]">
+                    {story.role}
+                  </p>
+                  <p className="mt-1 text-[14px] text-[#AEAEAE]">
+                    {story.location}
+                  </p>
                 </div>
                 <span className="orange-chip">Cerita</span>
               </div>
@@ -76,7 +76,10 @@ export default function StoriesSection() {
 
               <div className="mt-8 grid gap-px border border-[#E8E8E8] bg-[#E8E8E8]">
                 {[story.statA, story.statB].map((item) => (
-                  <div key={item} className="bg-[#F7F8FA] px-4 py-3 text-[14px] text-[#191919]">
+                  <div
+                    key={item}
+                    className="bg-[#F7F8FA] px-4 py-3 text-[14px] text-[#191919]"
+                  >
                     {item}
                   </div>
                 ))}

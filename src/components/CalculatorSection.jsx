@@ -58,11 +58,11 @@ export default function CalculatorSection() {
           transition={{ duration: 0.5 }}
           className="max-w-[760px]"
         >
-          <span className="section-eyebrow">Kalkulator dampak</span>
-          <h2 className="section-title">Perkirakan nilai dari minyak jelantah Anda</h2>
+          <span className="section-eyebrow">Estimasi sederhana</span>
+          <h2 className="section-title">Estimasi dampak berdasarkan volume jelantah</h2>
           <p className="section-subtitle">
-            Section ini dipoles agar lebih dekat dengan brief: formulir tajam,
-            focus state jelas, dan hasil yang terasa seperti dashboard produk.
+            Bagian ini menyediakan simulasi sederhana untuk menerjemahkan volume
+            minyak jelantah ke estimasi biodiesel, reduksi karbon, dan ekuivalen pohon.
           </p>
         </motion.div>
 
@@ -83,7 +83,7 @@ export default function CalculatorSection() {
               </h3>
               <p className="mt-3 max-w-[420px] text-[14px] leading-[1.6] text-[#303030]">
                 Kalkulasi ini memberi estimasi biodiesel, pengurangan emisi, dan
-                ekuivalen pohon berdasarkan asumsi sederhana yang sudah ada di proyek.
+                ekuivalen pohon berdasarkan asumsi konversi yang dipakai secara konsisten.
               </p>
 
               <div className="mt-6 grid gap-3 sm:grid-cols-[1fr_auto]">
@@ -147,9 +147,9 @@ export default function CalculatorSection() {
 
             <div className="grid gap-px border border-[#E8E8E8] bg-[#E8E8E8] sm:grid-cols-3">
               {[
-                { formula: "x 0.85", label: "yield biodiesel" },
-                { formula: "x 2.28", label: "kg CO2 offset" },
-                { formula: "/ 21.7", label: "tree equivalent" },
+                { formula: "x 0.85", label: "estimasi biodiesel" },
+                { formula: "x 2.28", label: "estimasi kg CO2" },
+                { formula: "/ 21.7", label: "ekuivalen pohon" },
               ].map((item) => (
                 <div key={item.label} className="bg-white p-4">
                   <div className="text-[24px] font-semibold text-[#191919]">

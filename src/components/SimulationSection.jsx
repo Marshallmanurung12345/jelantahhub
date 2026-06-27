@@ -61,11 +61,11 @@ export default function SimulationSection() {
           transition={{ duration: 0.5 }}
           className="max-w-[760px]"
         >
-          <span className="section-eyebrow">Simulasi masa depan</span>
-          <h2 className="section-title">Antarmuka proyeksi dengan gaya produk yang lebih rapi</h2>
+          <span className="section-eyebrow">Simulasi waktu</span>
+          <h2 className="section-title">Gambaran proyeksi indikator dari 2025 hingga 2035</h2>
           <p className="section-subtitle">
-            Grafik tetap dipertahankan, tetapi container, legend, dan stat cards
-            sekarang mengikuti surface tajam dan neutral palette yang diminta.
+            Grafik ini menampilkan perubahan akumulatif estimasi UCO, biodiesel,
+            dan reduksi karbon dalam rentang waktu yang dapat digeser.
           </p>
         </motion.div>
 

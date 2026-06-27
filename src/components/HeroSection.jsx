@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 
 const highlights = [
-  { value: "500K+", label: "Liter potensi UCO yang sudah dipetakan" },
-  { value: "425 Ton", label: "Estimasi emisi karbon yang bisa ditekan" },
-  { value: "34", label: "Provinsi siap untuk pemetaan lebih dalam" },
+  { value: "500K+", label: "Liter potensi minyak jelantah yang terpetakan" },
+  { value: "425 Ton", label: "Estimasi reduksi emisi dari skenario biodiesel" },
+  { value: "34", label: "Provinsi dengan ringkasan indikator utama" },
 ];
 
 const stats = [
-  { label: "Sumber", value: "Rumah tangga, UMKM, dan komunitas" },
-  { label: "Output", value: "Biodiesel dan insight wilayah" },
-  { label: "Model", value: "Ekonomi sirkular berbasis data" },
+  { label: "Cakupan", value: "Konsumsi minyak goreng dan estimasi turunannya" },
+  { label: "Indikator", value: "Jelantah, biodiesel, dan reduksi emisi" },
+  { label: "Sifat data", value: "Visualisasi informatif berbasis asumsi simulasi" },
 ];
 
 export default function HeroSection() {
@@ -27,15 +27,16 @@ export default function HeroSection() {
             transition={{ duration: 0.6 }}
             className="max-w-[680px]"
           >
-            <span className="section-eyebrow">Transisi energi dimulai dari rumah</span>
+            <span className="section-eyebrow">Mikrositus informasi publik</span>
             <h1 className="text-balance text-[32px] font-bold leading-[1.1] text-[#191919] md:text-[52px] lg:text-[64px]">
-              Mengubah minyak jelantah menjadi aliran energi yang lebih bersih dan terukur.
+              Atlas Jelantah Indonesia
             </h1>
             <p className="mt-6 max-w-[560px] text-[14px] leading-[1.7] text-[#303030] md:text-[16px]">
-              UCOnnect menghadirkan landing page edukatif yang menunjukkan bahwa
-              minyak jelantah bukan akhir dari siklus konsumsi, melainkan awal
-              dari pasokan biodiesel yang lebih berguna, lebih aman, dan lebih
-              mudah diukur dampaknya.
+              Visualisasi konsumsi minyak goreng, potensi minyak jelantah, dan
+              estimasi dampaknya di Indonesia. Halaman ini dirancang untuk
+              membantu pembaca memahami hubungan antara konsumsi, potensi
+              jelantah, biodiesel, dan reduksi emisi melalui peta serta
+              rangkaian data ringkas.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -48,7 +49,7 @@ export default function HeroSection() {
                 }
                 className="button-accent"
               >
-                Jelajahi Peta Dampak
+                Lihat Peta Interaktif
               </button>
               <button
                 type="button"
@@ -59,7 +60,7 @@ export default function HeroSection() {
                 }
                 className="button-secondary"
               >
-                Lihat Cara Kerja
+                Cara Membaca Data
               </button>
             </div>
 
@@ -88,24 +89,24 @@ export default function HeroSection() {
             <div className="relative grid gap-6 p-6 md:p-8">
               <div className="flex items-start justify-between gap-4 border-b border-[#E8E8E8] pb-6">
                 <div>
-                  <div className="orange-chip">Ringkasan landing page</div>
+                  <div className="orange-chip">Ringkasan visualisasi</div>
                   <h2 className="mt-4 text-[30px] font-bold leading-[1.25] text-[#191919]">
-                    Dari limbah menjadi bahan bakar.
+                    Dari konsumsi ke estimasi potensi.
                   </h2>
                   <p className="mt-3 max-w-[420px] text-[14px] leading-[1.6] text-[#303030]">
-                    Sistem visualnya dibentuk seperti produk teknologi
-                    konsumen: informatif, tajam, dan berorientasi aksi, dengan
-                    aksen oranye untuk CTA utama.
+                    Visualisasi ini menempatkan data konsumsi sebagai titik
+                    awal pembacaan, lalu menurunkannya ke estimasi minyak
+                    jelantah, biodiesel, dan emisi secara bertahap.
                   </p>
                 </div>
                 <div className="hidden border border-[#E8E8E8] bg-[#F7F8FA] px-4 py-3 text-right md:block">
                   <div className="text-[12px] uppercase tracking-[0.14em] text-[#AEAEAE]">
-                    Proyeksi 2026
+                    Ringkasan nasional
                   </div>
                   <div className="mt-2 text-[24px] font-semibold text-[#191919]">
                     85%
                   </div>
-                  <div className="text-[14px] text-[#303030]">potensi emisi lebih rendah</div>
+                  <div className="text-[14px] text-[#303030]">estimasi reduksi emisi vs solar fosil</div>
                 </div>
               </div>
 
@@ -128,20 +129,21 @@ export default function HeroSection() {
               <div className="grid gap-4 md:grid-cols-[1.15fr_0.85fr]">
                 <div className="surface-soft p-5">
                   <div className="text-[12px] uppercase tracking-[0.12em] text-[#AEAEAE]">
-                    Janji utama
+                    Fokus pembacaan
                   </div>
                   <p className="mt-3 text-[24px] font-semibold leading-7 text-[#191919]">
-                    Setiap tetes bisa dilacak, dinilai, dan dialihkan dari
-                    pencemaran.
+                    Data konsumsi rumah tangga dibaca sebagai dasar untuk
+                    memperkirakan besaran potensi energi dan dampak lingkungan.
                   </p>
                 </div>
                 <div className="bg-[#191919] p-5 text-white">
                   <div className="text-[12px] uppercase tracking-[0.12em] text-white/60">
-                    CTA utama
+                    Isi utama
                   </div>
                   <p className="mt-3 text-[16px] leading-6">
-                    Arahkan pengunjung untuk menjelajah data, memahami proses,
-                    lalu ikut dalam gerakan pengumpulan.
+                    Peta interaktif, peringkat wilayah, kalkulator sederhana,
+                    dan simulasi waktu dipakai untuk memberi konteks yang lebih
+                    mudah dipahami publik umum.
                   </p>
                   <div className="mt-5">
                     <button
@@ -153,7 +155,7 @@ export default function HeroSection() {
                       }
                       className="inline-flex h-9 items-center justify-center bg-white px-5 text-[14px] text-[#191919] transition-colors hover:bg-[#F7F7F7]"
                     >
-                      Hitung Dampak Anda
+                      Lihat Ringkasan Data
                     </button>
                   </div>
                 </div>
