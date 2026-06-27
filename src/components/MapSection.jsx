@@ -17,10 +17,10 @@ import regionalData from "../data/regional_enriched.json";
 import kabkotaGeoJSON from "../data/geo/kabkota-indonesia.json";
 
 const LEVEL_COLORS = {
-  low: "#86EFAC",
-  medium: "#22C55E",
-  high: "#16A34A",
-  "very-high": "#14532D",
+  low: "#FFE3CF",
+  medium: "#FFB47F",
+  high: "#FF8733",
+  "very-high": "#FF6900",
 };
 
 const LEVEL_LABELS = {
@@ -47,14 +47,14 @@ const ACTIVE_PROVINCE_STYLE = {
 const DEFAULT_REGIONAL_STYLE = {
   weight: 1,
   opacity: 1,
-  color: "#0F172A",
+  color: "#FFFFFF",
   fillOpacity: 0.75,
 };
 
 const ACTIVE_REGIONAL_STYLE = {
   weight: 2,
   opacity: 1,
-  color: "#FACC15",
+  color: "#191919",
   fillOpacity: 1,
 };
 
@@ -343,7 +343,7 @@ export default function MapSection() {
       mouseover: (event) => {
         event.target.setStyle({
           ...ACTIVE_PROVINCE_STYLE,
-          fillColor: "#FACC15",
+          fillColor: "#FFB47F",
         });
         handleProvinceEnter(event, provinceData);
       },
@@ -377,7 +377,7 @@ export default function MapSection() {
       mouseover: (event) => {
         event.target.setStyle({
           ...ACTIVE_REGIONAL_STYLE,
-          fillColor: "#FACC15",
+          fillColor: "#FFB47F",
         });
         handleRegionalEnter(event, item);
       },
@@ -397,8 +397,8 @@ export default function MapSection() {
   const activeTooltip = hoveredRegional || hoveredProvince;
 
   return (
-    <section id="map" className="bg-white py-28" data-lenis-prevent>
-      <div className="mx-auto max-w-[1600px] px-6">
+    <section id="map" className="page-section bg-[#F7F8FA]">
+      <div className="page-container max-w-[1440px]">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -406,25 +406,23 @@ export default function MapSection() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="section-label">🗺️ Feature One</span>
-          <h2 className="section-title">
-            Interactive <span className="text-gradient-green">Impact Map</span>
-          </h2>
+          <span className="section-label">Peta dampak</span>
+          <h2 className="section-title">Peta dampak regional interaktif</h2>
           <p className="section-subtitle">
             {mapLevel === "province"
-              ? "Klik provinsi untuk masuk ke peta kabupaten/kota."
-              : `Hover kabupaten/kota di ${selectedProvince?.name || ""} untuk melihat detail.`}
+              ? "Klik provinsi untuk masuk ke peta kabupaten atau kota dan lihat potensi dampaknya."
+              : `Hover kabupaten atau kota di ${selectedProvince?.name || ""} untuk melihat detail.`}
           </p>
         </motion.div>
 
         <div className="grid gap-6">
           <div
             ref={containerRef}
-            className="relative overflow-hidden rounded-3xl border border-gray-100 bg-brand-bg shadow-card"
+            className="surface-card relative overflow-hidden"
             style={{ height: "720px" }}
           >
             <div
-              className="pointer-events-none absolute inset-0 z-[1] opacity-10"
+              className="pointer-events-none absolute inset-0 z-[1]"
               aria-hidden="true"
             >
               <svg width="100%" height="100%">
@@ -438,7 +436,7 @@ export default function MapSection() {
                     <path
                       d="M 80 0 L 0 0 0 80"
                       fill="none"
-                      stroke="#22C55E"
+                      stroke="rgba(25,25,25,0.06)"
                       strokeWidth="1"
                     />
                   </pattern>
@@ -451,7 +449,7 @@ export default function MapSection() {
               <button
                 type="button"
                 onClick={handleBackToProvince}
-                className="absolute left-4 top-4 z-[8] rounded-xl border border-slate-200 bg-white/95 px-4 py-2 text-sm font-semibold text-slate-700 shadow-md backdrop-blur-md transition hover:bg-slate-50"
+                className="absolute left-4 top-4 z-[8] border border-[#E8E8E8] bg-white px-4 py-2 text-[14px] text-[#191919] transition hover:bg-[#F7F7F7]"
               >
                 ← Kembali ke Provinsi
               </button>
@@ -459,16 +457,16 @@ export default function MapSection() {
 
             {mapLevel === "regional" &&
               (filteredKabkotaGeoJSON?.features?.length ? (
-                <div className="absolute right-4 top-4 z-[8] rounded-xl bg-white px-3 py-2 text-sm font-semibold text-slate-900 shadow">
-                  Kab/Kota tampil: {filteredKabkotaGeoJSON.features.length}
+                <div className="absolute right-4 top-4 z-[8] border border-[#E8E8E8] bg-white px-3 py-2 text-[14px] text-[#191919]">
+                  Kab/kota tampil: {filteredKabkotaGeoJSON.features.length}
                 </div>
               ) : (
-                <div className="absolute right-4 top-4 z-[8] rounded-xl bg-red-100 px-3 py-2 text-sm font-semibold text-red-700 shadow">
+                <div className="absolute right-4 top-4 z-[8] border border-[#E8E8E8] bg-[#FFF4ED] px-3 py-2 text-[14px] text-[#BE7600]">
                   Tidak ada kab/kota yang cocok
                 </div>
               ))}
 
-            <div className="absolute inset-0 z-[2]">
+            <div className="absolute inset-0 z-[2]" data-lenis-prevent>
               <MapContainer
                 key={
                   mapLevel === "regional"
@@ -480,7 +478,7 @@ export default function MapSection() {
                 minZoom={4}
                 maxZoom={10}
                 zoomControl={true}
-                scrollWheelZoom={true}
+                scrollWheelZoom={false}
                 className="h-full w-full"
               >
                 <TileLayer
@@ -562,8 +560,8 @@ export default function MapSection() {
                     top: Math.min(tooltipPos.y + 16, 620),
                   }}
                 >
-                  <div className="min-w-[300px] rounded-2xl border border-white/60 bg-white/95 p-5 shadow-2xl backdrop-blur-md">
-                    <div className="mb-3 flex items-center gap-3 border-b border-gray-100 pb-3">
+                  <div className="min-w-[300px] border border-[#E8E8E8] bg-white p-5 shadow-[0_8px_24px_rgba(25,25,25,0.12)]">
+                    <div className="mb-3 flex items-center gap-3 border-b border-[#E8E8E8] pb-3">
                       <div
                         className="h-4 w-4 rounded-full"
                         style={{
@@ -574,10 +572,10 @@ export default function MapSection() {
                         }}
                       />
                       <div>
-                        <h4 className="text-lg font-bold text-gray-900">
+                        <h4 className="text-[16px] font-bold text-[#191919]">
                           {activeTooltip.name}
                         </h4>
-                        <p className="text-xs uppercase tracking-wide text-gray-500">
+                        <p className="text-[12px] uppercase tracking-[0.12em] text-[#AEAEAE]">
                           {mapLevel === "regional" && hoveredRegional
                             ? hoveredRegional.jenis_wilayah
                             : "provinsi"}
@@ -586,7 +584,7 @@ export default function MapSection() {
                     </div>
 
                     {mapLevel === "regional" && hoveredRegional ? (
-                      <div className="space-y-3 text-sm">
+                      <div className="space-y-3 text-[14px]">
                         <div>
                           <div className="mb-0.5 font-medium text-gray-500">
                             Konsumsi Minyak Goreng
@@ -638,7 +636,7 @@ export default function MapSection() {
                         </div>
                       </div>
                     ) : (
-                      <div className="space-y-3 text-sm">
+                      <div className="space-y-3 text-[14px]">
                         <div>
                           <div className="mb-0.5 font-medium text-gray-500">
                             Potensi UCO
@@ -685,14 +683,14 @@ export default function MapSection() {
               )}
             </AnimatePresence>
 
-            <div className="absolute bottom-6 left-1/2 z-[6] flex -translate-x-1/2 gap-6 rounded-full border border-gray-100 bg-white/90 px-6 py-3 shadow-lg backdrop-blur-md">
+            <div className="absolute bottom-6 left-1/2 z-[6] flex -translate-x-1/2 gap-6 border border-[#E8E8E8] bg-white px-6 py-3">
               {Object.entries(LEVEL_LABELS).map(([level, label]) => (
                 <div key={level} className="flex items-center gap-2">
                   <div
-                    className="h-3.5 w-3.5 rounded-full shadow-sm"
+                    className="h-3.5 w-3.5 rounded-full"
                     style={{ background: LEVEL_COLORS[level] }}
                   />
-                  <span className="text-xs font-semibold text-gray-600">
+                  <span className="text-[12px] text-[#303030]">
                     {label}
                   </span>
                 </div>

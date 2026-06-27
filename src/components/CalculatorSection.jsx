@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useCountUp } from '../hooks/useCountUp';
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useCountUp } from "../hooks/useCountUp";
 
 function calcResults(liters) {
   const biodiesel = +(liters * 0.85).toFixed(1);
@@ -9,165 +9,192 @@ function calcResults(liters) {
   return { biodiesel, carbon, trees };
 }
 
-// Animated result card using custom hook
-function ResultCard({ icon, label, value, unit, color }) {
+function ResultCard({ label, value, unit }) {
   const { ref, formatted } = useCountUp(Math.floor(value), 1400);
+
   return (
-    <div ref={ref} className={`${color} rounded-2xl p-6 text-center`}>
-      <div className="text-4xl mb-3">{icon}</div>
-      <div className="font-jakarta font-black text-3xl text-brand-text mb-1">
-        {formatted}
-        <span className="text-lg font-semibold text-gray-400 ml-1">{unit}</span>
+    <div ref={ref} className="surface-card p-5">
+      <div className="text-[12px] uppercase tracking-[0.12em] text-[#AEAEAE]">
+        {label}
       </div>
-      <div className="text-sm text-gray-500 font-medium">{label}</div>
+      <div className="mt-4 text-[30px] font-bold leading-[1.25] text-[#191919]">
+        {formatted}
+      </div>
+      <div className="mt-1 text-[14px] text-[#303030]">{unit}</div>
     </div>
   );
 }
 
 export default function CalculatorSection() {
-  const [liters, setLiters] = useState('');
+  const [liters, setLiters] = useState("");
   const [results, setResults] = useState(null);
-  const [error, setError] = useState('');
-  const [calcKey, setCalcKey] = useState(0); // force re-mount to re-trigger countup
+  const [error, setError] = useState("");
+  const [calcKey, setCalcKey] = useState(0);
 
   const handleCalculate = () => {
-    const val = parseFloat(liters);
-    if (!val || val <= 0) {
-      setError('Masukkan jumlah liter yang valid (> 0).');
+    const value = parseFloat(liters);
+    if (!value || value <= 0) {
+      setError("Masukkan jumlah liter yang valid lebih dari 0.");
       setResults(null);
       return;
     }
-    if (val > 10000000) {
-      setError('Nilai terlalu besar. Maksimum 10.000.000 liter.');
+    if (value > 10000000) {
+      setError("Nilai maksimum adalah 10.000.000 liter.");
       return;
     }
-    setError('');
-    setResults(calcResults(val));
-    setCalcKey(k => k + 1);
+
+    setError("");
+    setResults(calcResults(value));
+    setCalcKey((current) => current + 1);
   };
 
   return (
-    <section id="calculator" className="py-28 bg-brand-bg">
-      <div className="max-w-4xl mx-auto px-6">
-        {/* Header */}
+    <section id="calculator" className="page-section bg-white">
+      <div className="page-container">
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-[760px]"
         >
-          <span className="section-label">🧮 Feature Two</span>
-          <h2 className="section-title">
-            Carbon Impact <span className="text-gradient-green">Calculator</span>
-          </h2>
+          <span className="section-eyebrow">Kalkulator dampak</span>
+          <h2 className="section-title">Perkirakan nilai dari minyak jelantah Anda</h2>
           <p className="section-subtitle">
-            Masukkan volume minyak jelantah Anda dan lihat dampak nyata
-            yang bisa dihasilkan untuk lingkungan.
+            Section ini dipoles agar lebih dekat dengan brief: formulir tajam,
+            focus state jelas, dan hasil yang terasa seperti dashboard produk.
           </p>
         </motion.div>
 
-        {/* Calculator Card */}
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-          className="bg-white rounded-3xl shadow-card border border-gray-100 p-8 md:p-12"
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.5 }}
+          className="mt-10 surface-soft border border-[#E8E8E8] p-6 md:p-8"
         >
-          {/* Input */}
-          <div className="mb-8">
-            <label htmlFor="uco-input" className="block font-jakarta font-semibold text-brand-text mb-2 text-lg">
-              🛢️ Jumlah Minyak Jelantah
-            </label>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <div className="relative flex-1">
+          <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+            <div>
+              <div className="text-[12px] uppercase tracking-[0.12em] text-[#AEAEAE]">
+                Input
+              </div>
+              <h3 className="mt-3 text-[24px] font-semibold leading-7 text-[#191919]">
+                Masukkan volume jelantah Anda
+              </h3>
+              <p className="mt-3 max-w-[420px] text-[14px] leading-[1.6] text-[#303030]">
+                Kalkulasi ini memberi estimasi biodiesel, pengurangan emisi, dan
+                ekuivalen pohon berdasarkan asumsi sederhana yang sudah ada di proyek.
+              </p>
+
+              <div className="mt-6 grid gap-3 sm:grid-cols-[1fr_auto]">
+                <div className="relative">
+                  <input
+                    id="uco-input"
+                    type="number"
+                    min="0"
+                    max="10000000"
+                    value={liters}
+                    onChange={(event) => {
+                      setLiters(event.target.value);
+                      setResults(null);
+                      setError("");
+                    }}
+                    onKeyDown={(event) =>
+                      event.key === "Enter" && handleCalculate()
+                    }
+                    placeholder="Contoh: 120"
+                    className="input-field pr-16"
+                  />
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[14px] text-[#AEAEAE]">
+                    Liter
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleCalculate}
+                  className="button-primary"
+                >
+                  Hitung
+                </button>
+              </div>
+
+              <div className="mt-5">
+                <div className="mb-2 text-[14px] text-[#303030]">
+                  Atau gunakan slider:{" "}
+                  <span className="font-semibold text-[#191919]">
+                    {liters || 1} L
+                  </span>
+                </div>
                 <input
-                  id="uco-input"
-                  type="number"
-                  min="0"
-                  max="10000000"
-                  value={liters}
-                  onChange={e => { setLiters(e.target.value); setResults(null); setError(''); }}
-                  onKeyDown={e => e.key === 'Enter' && handleCalculate()}
-                  placeholder="Contoh: 10"
-                  className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-semibold text-brand-text focus:outline-none focus:border-brand-green transition-colors placeholder-gray-300"
+                  type="range"
+                  min="1"
+                  max="10000"
+                  value={liters || 1}
+                  onChange={(event) => {
+                    setLiters(event.target.value);
+                    setResults(null);
+                    setError("");
+                  }}
+                  className="h-2 w-full accent-[#FF6900]"
+                  aria-label="Slider volume UCO"
                 />
-                <span className="absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 font-medium">Liter</span>
               </div>
-              <button
-                onClick={handleCalculate}
-                className="btn-primary whitespace-nowrap"
-                id="calc-button"
-              >
-                Calculate Impact
-              </button>
+
+              {error ? (
+                <p className="mt-3 text-[14px] text-[#D32F2F]">{error}</p>
+              ) : null}
             </div>
 
-            {/* Slider */}
-            <div className="mt-4">
-              <label className="text-sm text-gray-400 mb-1 block">
-                Atau pilih dengan slider: <span className="text-brand-green font-semibold">{liters || 0} L</span>
-              </label>
-              <input
-                type="range"
-                min="1"
-                max="10000"
-                value={liters || 1}
-                onChange={e => { setLiters(e.target.value); setResults(null); }}
-                className="w-full accent-brand-green"
-                aria-label="Slider volume UCO"
-              />
-              <div className="flex justify-between text-xs text-gray-400 mt-1">
-                <span>1 L</span><span>2.500 L</span><span>5.000 L</span><span>10.000 L</span>
-              </div>
+            <div className="grid gap-px border border-[#E8E8E8] bg-[#E8E8E8] sm:grid-cols-3">
+              {[
+                { formula: "x 0.85", label: "yield biodiesel" },
+                { formula: "x 2.28", label: "kg CO2 offset" },
+                { formula: "/ 21.7", label: "tree equivalent" },
+              ].map((item) => (
+                <div key={item.label} className="bg-white p-4">
+                  <div className="text-[24px] font-semibold text-[#191919]">
+                    {item.formula}
+                  </div>
+                  <div className="mt-2 text-[14px] text-[#303030]">
+                    {item.label}
+                  </div>
+                </div>
+              ))}
             </div>
-
-            {error && <p className="mt-3 text-red-500 text-sm font-medium">{error}</p>}
           </div>
 
-          {/* Formula reference */}
-          <div className="grid grid-cols-3 gap-3 mb-8 text-center">
-            {[
-              { formula: '× 0.85', label: 'Yield Biodiesel', color: 'bg-green-50 text-brand-green' },
-              { formula: '× 2.28', label: 'kg CO₂ Offset', color: 'bg-blue-50 text-blue-600' },
-              { formula: '÷ 21.7', label: 'Setara Pohon', color: 'bg-emerald-50 text-emerald-600' },
-            ].map((f, i) => (
-              <div key={i} className={`${f.color} rounded-xl p-3`}>
-                <div className="font-jakarta font-bold text-lg">{f.formula}</div>
-                <div className="text-xs opacity-70">{f.label}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Results */}
           <AnimatePresence mode="wait">
-            {results && (
+            {results ? (
               <motion.div
                 key={calcKey}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.3 }}
+                className="mt-8 border-t border-[#E8E8E8] pt-8"
               >
-                <div className="h-px bg-gray-100 mb-8" />
-                <h3 className="font-jakarta font-bold text-lg text-brand-text mb-5 text-center">
-                  ✨ Dampak dari{' '}
-                  <span className="text-brand-green">
-                    {parseFloat(liters).toLocaleString('id-ID')} Liter
-                  </span>{' '}
-                  Jelantah
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <ResultCard icon="⚡" label="Biodiesel Produced" value={results.biodiesel} unit="L" color="bg-green-50" />
-                  <ResultCard icon="🌍" label="Carbon Reduction" value={results.carbon} unit="kg CO₂" color="bg-blue-50" />
-                  <ResultCard icon="🌳" label="Equivalent Trees" value={results.trees} unit="pohon" color="bg-emerald-50" />
+                <div className="mb-5 text-[16px] font-bold text-[#191919]">
+                  Dampak dari {parseFloat(liters).toLocaleString("id-ID")} liter
                 </div>
-                <p className="text-center text-xs text-gray-400 mt-5">
-                  * Kalkulasi berdasarkan standar RED II EU & faktor emisi IPCC
-                </p>
+                <div className="grid gap-4 md:grid-cols-3">
+                  <ResultCard
+                    label="Biodiesel dihasilkan"
+                    value={results.biodiesel}
+                    unit="liter"
+                  />
+                  <ResultCard
+                    label="Reduksi karbon"
+                    value={results.carbon}
+                    unit="kg CO2"
+                  />
+                  <ResultCard
+                    label="Setara pohon"
+                    value={results.trees}
+                    unit="pohon"
+                  />
+                </div>
               </motion.div>
-            )}
+            ) : null}
           </AnimatePresence>
         </motion.div>
       </div>

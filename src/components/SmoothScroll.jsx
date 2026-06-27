@@ -7,6 +7,10 @@ export default function SmoothScroll() {
       duration: 1.1,
       smoothWheel: true,
       touchMultiplier: 1.2,
+      prevent: (node) =>
+        node?.closest?.(
+          "[data-lenis-prevent], .leaflet-container, .leaflet-control-container",
+        ) != null,
     });
 
     function raf(time) {

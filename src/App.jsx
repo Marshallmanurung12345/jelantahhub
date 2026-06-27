@@ -40,7 +40,7 @@ function ScrollProgressBar() {
 
 export default function App() {
   return (
-    <div className="min-h-screen">
+    <div className="page-shell">
       <SmoothScroll />
       <ScrollProgressBar />
       <Navbar />
