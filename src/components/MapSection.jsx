@@ -397,7 +397,7 @@ export default function MapSection() {
   const activeTooltip = hoveredRegional || hoveredProvince;
 
   return (
-    <section id="map" className="bg-white py-28">
+    <section id="map" className="bg-white py-28" data-lenis-prevent>
       <div className="mx-auto max-w-[1600px] px-6">
         <motion.div
           initial={{ opacity: 0, y: 32 }}

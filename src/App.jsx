@@ -9,6 +9,7 @@ import SimulationSection from './components/SimulationSection';
 import StoriesSection from './components/StoriesSection';
 import CTASection from './components/CTASection';
 import Footer from './components/Footer';
+import SmoothScroll from './components/SmoothScroll';
 import './index.css';
 
 function ScrollProgressBar() {
@@ -40,6 +41,7 @@ function ScrollProgressBar() {
 export default function App() {
   return (
     <div className="min-h-screen">
+      <SmoothScroll />
       <ScrollProgressBar />
       <Navbar />
       <main>
