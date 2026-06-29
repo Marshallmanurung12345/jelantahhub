@@ -1,160 +1,167 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+
+const highlights = [
+  { value: "500K+", label: "Liter potensi minyak jelantah yang terpetakan" },
+  { value: "425 Ton", label: "Estimasi reduksi emisi dari skenario biodiesel" },
+  { value: "34", label: "Provinsi dengan ringkasan indikator utama" },
+];
 
 const stats = [
-  { icon: '🛢️', value: '500.000+', label: 'Estimated Used Cooking Oil' },
-  { icon: '🌫️', value: '425 Ton',  label: 'Carbon Emission Reduced' },
-  { icon: '🌿', value: '350.000+', label: 'Liter Biodiesel Potential' },
+  { label: "Cakupan", value: "Konsumsi minyak goreng dan estimasi turunannya" },
+  { label: "Indikator", value: "Jelantah, biodiesel, dan reduksi emisi" },
+  { label: "Sifat data", value: "Visualisasi informatif berbasis asumsi simulasi" },
 ];
 
 export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen bg-white flex items-center overflow-hidden pt-16"
+      className="relative overflow-hidden border-b border-[#E8E8E8] bg-white pt-12"
     >
-      {/* ─── Main Grid ─── */}
-      <div className="max-w-7xl mx-auto px-6 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-[calc(100vh-4rem)] items-center">
-
-          {/* LEFT — Text Content */}
+      <div className="absolute inset-0 orange-wash" aria-hidden="true" />
+      <div className="page-container relative">
+        <div className="grid min-h-[calc(100vh-48px)] items-center gap-10 py-12 lg:grid-cols-[1.1fr_0.9fr] lg:py-16">
           <motion.div
-            initial="hidden"
-            animate="show"
-            variants={{ show: { transition: { staggerChildren: 0.1 } } }}
-            className="py-20 pr-0 lg:pr-8 flex flex-col justify-center"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-[680px]"
           >
-            {/* Badge */}
-            <motion.div
-              variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="inline-flex items-center gap-2 border border-green-300 bg-green-50 text-brand-green text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6">
-                🌿 SDGs Creative Web Competition
-              </span>
-            </motion.div>
+            <span className="section-eyebrow">Mikrositus informasi publik</span>
+            <h1 className="text-balance text-[32px] font-bold leading-[1.1] text-[#191919] md:text-[52px] lg:text-[64px]">
+              Atlas Jelantah Indonesia
+            </h1>
+            <p className="mt-6 max-w-[560px] text-[14px] leading-[1.7] text-[#303030] md:text-[16px]">
+              Visualisasi konsumsi minyak goreng, potensi minyak jelantah, dan
+              estimasi dampaknya di Indonesia. Halaman ini dirancang untuk
+              membantu pembaca memahami hubungan antara konsumsi, potensi
+              jelantah, biodiesel, dan reduksi emisi melalui peta serta
+              rangkaian data ringkas.
+            </p>
 
-            {/* Headline */}
-            <motion.h1
-              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-              transition={{ duration: 0.6 }}
-              className="font-jakarta font-black text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-brand-text mb-6"
-            >
-              Turning Used<br />
-              Cooking Oil Into<br />
-              <span className="text-brand-green">Clean Energy.</span>
-            </motion.h1>
-
-            {/* Subtitle */}
-            <motion.p
-              variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
-              transition={{ duration: 0.5 }}
-              className="text-gray-500 text-base md:text-lg leading-relaxed mb-10 max-w-md"
-            >
-              ReOil mengubah minyak jelantah dari limbah rumah tangga
-              menjadi energi bersih melalui <strong className="text-brand-text">ekonomi sirkular.</strong>
-            </motion.p>
-
-            {/* Buttons */}
-            <motion.div
-              variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-wrap gap-4"
-            >
+            <div className="mt-8 flex flex-wrap gap-3">
               <button
-                onClick={() => document.getElementById('map')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-brand-green text-white font-jakarta font-semibold px-7 py-3.5 rounded-full flex items-center gap-2 hover:bg-brand-green-light transition-colors duration-200"
-                id="hero-cta-explore"
+                type="button"
+                onClick={() =>
+                  document
+                    .getElementById("map")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="button-accent"
               >
-                Explore Impact
-                <span className="bg-white/20 rounded-full w-6 h-6 flex items-center justify-center text-sm">→</span>
+                Lihat Peta Interaktif
               </button>
               <button
-                onClick={() => document.getElementById('problem')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-2 border-gray-200 text-brand-text font-jakarta font-semibold px-7 py-3.5 rounded-full hover:border-brand-green hover:text-brand-green transition-colors duration-200"
-                id="hero-cta-learn"
+                type="button"
+                onClick={() =>
+                  document
+                    .getElementById("how-it-works")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="button-secondary"
               >
-                Learn More
+                Cara Membaca Data
               </button>
-            </motion.div>
-          </motion.div>
-
-          {/* RIGHT — Hero Image + Stats Card */}
-          <div className="relative hidden lg:flex items-center justify-center h-full min-h-[600px]">
-            {/* Background nature scene fills right half */}
-            <div
-              className="absolute inset-0 rounded-3xl overflow-hidden"
-              style={{
-                background: 'linear-gradient(160deg, #e8f5e9 0%, #c8e6c9 30%, #a5d6a7 60%, #81c784 100%)',
-              }}
-            >
-              {/* Mountain silhouette SVG */}
-              <svg
-                viewBox="0 0 800 500"
-                className="absolute bottom-0 left-0 w-full opacity-30"
-                preserveAspectRatio="xMidYMax meet"
-              >
-                <path d="M0,400 Q100,200 200,280 Q300,350 400,150 Q500,20 600,200 Q700,350 800,280 L800,500 L0,500 Z"
-                  fill="#2d6a4f" />
-                <path d="M0,450 Q150,320 300,380 Q450,430 600,350 Q700,300 800,380 L800,500 L0,500 Z"
-                  fill="#40916c" />
-              </svg>
-              {/* Wind turbine */}
-              <svg viewBox="0 0 200 400" className="absolute right-12 top-10 w-20 opacity-25">
-                <line x1="100" y1="50" x2="100" y2="380" stroke="#1b4332" strokeWidth="6"/>
-                <ellipse cx="100" cy="50" rx="6" ry="6" fill="#1b4332"/>
-                <path d="M100,50 Q80,30 60,10 Q80,40 100,50" fill="#2d6a4f"/>
-                <path d="M100,50 Q120,30 140,10 Q120,40 100,50" fill="#40916c"/>
-                <path d="M100,50 Q90,70 85,100 Q100,70 100,50" fill="#1b4332"/>
-              </svg>
-              {/* Blur effect at edges */}
-              <div className="absolute inset-0" style={{
-                background: 'linear-gradient(to right, white 0%, transparent 20%, transparent 80%, white 100%)',
-              }}/>
-              <div className="absolute inset-0" style={{
-                background: 'linear-gradient(to bottom, white 0%, transparent 10%, transparent 85%, white 100%)',
-              }}/>
             </div>
 
-            {/* Hero Bottle Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-              className="relative z-10 flex items-center justify-center"
-            >
-              <motion.img
-                src="/hero-bottle.png"
-                alt="Minyak jelantah dalam botol kaca dengan simbol daur ulang"
-                className="w-72 h-auto drop-shadow-2xl object-contain"
-                animate={{ y: [0, -12, 0] }}
-                transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }}
-              />
-            </motion.div>
+            <div className="mt-10 grid gap-px border border-[#E8E8E8] bg-[#E8E8E8] md:grid-cols-3">
+              {highlights.map((item) => (
+                <div key={item.label} className="bg-white p-4 md:p-5">
+                  <div className="text-[24px] font-semibold leading-6 text-[#191919]">
+                    {item.value}
+                  </div>
+                  <p className="mt-2 text-[14px] leading-[1.5] text-[#303030]">
+                    {item.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
-            {/* Stats Card — floating top right */}
-            <motion.div
-              initial={{ opacity: 0, x: 20, y: -20 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.6, ease: 'easeOut' }}
-              className="absolute top-12 right-6 z-20 bg-white rounded-2xl shadow-xl border border-gray-100 p-5 w-52"
-            >
-              <p className="font-jakarta font-bold text-brand-text text-sm leading-snug mb-4">
-                Setiap tetes punya<br />masa depan
-              </p>
-              <div className="space-y-3">
-                {stats.map((s, i) => (
-                  <div key={i} className="flex items-start gap-2.5">
-                    <span className="text-lg leading-none mt-0.5">{s.icon}</span>
-                    <div>
-                      <div className="font-jakarta font-bold text-brand-text text-sm">{s.value}</div>
-                      <div className="text-gray-400 text-xs leading-tight">{s.label}</div>
+          <motion.div
+            initial={{ opacity: 0, x: 28 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="surface-card relative overflow-hidden"
+          >
+            <div className="hairline-grid absolute inset-0 opacity-60" />
+            <div className="absolute left-0 top-0 h-1 w-full bg-[#FF6900]" />
+            <div className="relative grid gap-6 p-6 md:p-8">
+              <div className="flex items-start justify-between gap-4 border-b border-[#E8E8E8] pb-6">
+                <div>
+                  <div className="orange-chip">Ringkasan visualisasi</div>
+                  <h2 className="mt-4 text-[30px] font-bold leading-[1.25] text-[#191919]">
+                    Dari konsumsi ke estimasi potensi.
+                  </h2>
+                  <p className="mt-3 max-w-[420px] text-[14px] leading-[1.6] text-[#303030]">
+                    Visualisasi ini menempatkan data konsumsi sebagai titik
+                    awal pembacaan, lalu menurunkannya ke estimasi minyak
+                    jelantah, biodiesel, dan emisi secara bertahap.
+                  </p>
+                </div>
+                <div className="hidden border border-[#E8E8E8] bg-[#F7F8FA] px-4 py-3 text-right md:block">
+                  <div className="text-[12px] uppercase tracking-[0.14em] text-[#AEAEAE]">
+                    Ringkasan nasional
+                  </div>
+                  <div className="mt-2 text-[24px] font-semibold text-[#191919]">
+                    85%
+                  </div>
+                  <div className="text-[14px] text-[#303030]">estimasi reduksi emisi vs solar fosil</div>
+                </div>
+              </div>
+
+              <div className="grid gap-px border border-[#E8E8E8] bg-[#E8E8E8]">
+                {stats.map((item) => (
+                  <div
+                    key={item.label}
+                    className="grid gap-2 bg-white px-4 py-4 md:grid-cols-[120px_1fr]"
+                  >
+                    <div className="text-[12px] uppercase tracking-[0.12em] text-[#AEAEAE]">
+                      {item.label}
+                    </div>
+                    <div className="text-[14px] leading-[1.6] text-[#191919]">
+                      {item.value}
                     </div>
                   </div>
                 ))}
               </div>
-            </motion.div>
-          </div>
 
+              <div className="grid gap-4 md:grid-cols-[1.15fr_0.85fr]">
+                <div className="surface-soft p-5">
+                  <div className="text-[12px] uppercase tracking-[0.12em] text-[#AEAEAE]">
+                    Fokus pembacaan
+                  </div>
+                  <p className="mt-3 text-[24px] font-semibold leading-7 text-[#191919]">
+                    Data konsumsi rumah tangga dibaca sebagai dasar untuk
+                    memperkirakan besaran potensi energi dan dampak lingkungan.
+                  </p>
+                </div>
+                <div className="bg-[#191919] p-5 text-white">
+                  <div className="text-[12px] uppercase tracking-[0.12em] text-white/60">
+                    Isi utama
+                  </div>
+                  <p className="mt-3 text-[16px] leading-6">
+                    Peta interaktif, peringkat wilayah, kalkulator sederhana,
+                    dan simulasi waktu dipakai untuk memberi konteks yang lebih
+                    mudah dipahami publik umum.
+                  </p>
+                  <div className="mt-5">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        document
+                          .getElementById("calculator")
+                          ?.scrollIntoView({ behavior: "smooth" })
+                      }
+                      className="inline-flex h-9 items-center justify-center bg-white px-5 text-[14px] text-[#191919] transition-colors hover:bg-[#F7F7F7]"
+                    >
+                      Lihat Ringkasan Data
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

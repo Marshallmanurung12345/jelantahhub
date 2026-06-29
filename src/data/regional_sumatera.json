@@ -1,0 +1,1100 @@
+{
+  "aceh": [
+    {
+      "id": "aceh_simeulue",
+      "province_id": "aceh",
+      "name": "Simeulue",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.197
+    },
+    {
+      "id": "aceh_aceh_singkil",
+      "province_id": "aceh",
+      "name": "Aceh Singkil",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.292
+    },
+    {
+      "id": "aceh_aceh_selatan",
+      "province_id": "aceh",
+      "name": "Aceh Selatan",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.29
+    },
+    {
+      "id": "aceh_aceh_tenggara",
+      "province_id": "aceh",
+      "name": "Aceh Tenggara",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.262
+    },
+    {
+      "id": "aceh_aceh_timur",
+      "province_id": "aceh",
+      "name": "Aceh Timur",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.185
+    },
+    {
+      "id": "aceh_aceh_tengah",
+      "province_id": "aceh",
+      "name": "Aceh Tengah",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.287
+    },
+    {
+      "id": "aceh_aceh_barat",
+      "province_id": "aceh",
+      "name": "Aceh Barat",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.226
+    },
+    {
+      "id": "aceh_aceh_besar",
+      "province_id": "aceh",
+      "name": "Aceh Besar",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.22
+    },
+    {
+      "id": "aceh_pidie",
+      "province_id": "aceh",
+      "name": "Pidie",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.228
+    },
+    {
+      "id": "aceh_bireuen",
+      "province_id": "aceh",
+      "name": "Bireuen",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.172
+    },
+    {
+      "id": "aceh_aceh_utara",
+      "province_id": "aceh",
+      "name": "Aceh Utara",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.212
+    },
+    {
+      "id": "aceh_aceh_barat_daya",
+      "province_id": "aceh",
+      "name": "Aceh Barat Daya",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.224
+    },
+    {
+      "id": "aceh_gayo_lues",
+      "province_id": "aceh",
+      "name": "Gayo Lues",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.272
+    },
+    {
+      "id": "aceh_aceh_tamiang",
+      "province_id": "aceh",
+      "name": "Aceh Tamiang",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.268
+    },
+    {
+      "id": "aceh_nagan_raya",
+      "province_id": "aceh",
+      "name": "Nagan Raya",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.267
+    },
+    {
+      "id": "aceh_aceh_jaya",
+      "province_id": "aceh",
+      "name": "Aceh Jaya",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.241
+    },
+    {
+      "id": "aceh_bener_meriah",
+      "province_id": "aceh",
+      "name": "Bener Meriah",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.306
+    },
+    {
+      "id": "aceh_pidie_jaya",
+      "province_id": "aceh",
+      "name": "Pidie Jaya",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.22
+    },
+    {
+      "id": "aceh_kota_banda_aceh",
+      "province_id": "aceh",
+      "name": "Kota Banda Aceh",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.223
+    },
+    {
+      "id": "aceh_kota_sabang",
+      "province_id": "aceh",
+      "name": "Kota Sabang",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.251
+    },
+    {
+      "id": "aceh_kota_langsa",
+      "province_id": "aceh",
+      "name": "Kota Langsa",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.252
+    },
+    {
+      "id": "aceh_kota_lhokseumawe",
+      "province_id": "aceh",
+      "name": "Kota Lhokseumawe",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.23
+    },
+    {
+      "id": "aceh_kota_subulussalam",
+      "province_id": "aceh",
+      "name": "Kota Subulussalam",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.281
+    }
+  ],
+  "sumut": [
+    {
+      "id": "sumut_nias",
+      "province_id": "sumut",
+      "name": "Nias",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.172
+    },
+    {
+      "id": "sumut_mandailing_natal",
+      "province_id": "sumut",
+      "name": "Mandailing Natal",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.207
+    },
+    {
+      "id": "sumut_tapanuli_selatan",
+      "province_id": "sumut",
+      "name": "Tapanuli Selatan",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.243
+    },
+    {
+      "id": "sumut_tapanuli_tengah",
+      "province_id": "sumut",
+      "name": "Tapanuli Tengah",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.246
+    },
+    {
+      "id": "sumut_tapanuli_utara",
+      "province_id": "sumut",
+      "name": "Tapanuli Utara",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.271
+    },
+    {
+      "id": "sumut_toba_samosir",
+      "province_id": "sumut",
+      "name": "Toba Samosir",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.265
+    },
+    {
+      "id": "sumut_labuhan_batu",
+      "province_id": "sumut",
+      "name": "Labuhan Batu",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.277
+    },
+    {
+      "id": "sumut_asahan",
+      "province_id": "sumut",
+      "name": "Asahan",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.278
+    },
+    {
+      "id": "sumut_simalungun",
+      "province_id": "sumut",
+      "name": "Simalungun",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.286
+    },
+    {
+      "id": "sumut_dairi",
+      "province_id": "sumut",
+      "name": "Dairi",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.241
+    },
+    {
+      "id": "sumut_karo",
+      "province_id": "sumut",
+      "name": "Karo",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.296
+    },
+    {
+      "id": "sumut_deli_serdang",
+      "province_id": "sumut",
+      "name": "Deli Serdang",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.296
+    },
+    {
+      "id": "sumut_langkat",
+      "province_id": "sumut",
+      "name": "Langkat",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.28
+    },
+    {
+      "id": "sumut_nias_selatan",
+      "province_id": "sumut",
+      "name": "Nias Selatan",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.211
+    },
+    {
+      "id": "sumut_humbang_hasundutan",
+      "province_id": "sumut",
+      "name": "Humbang Hasundutan",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.259
+    },
+    {
+      "id": "sumut_pakpak_bharat",
+      "province_id": "sumut",
+      "name": "Pakpak Bharat",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.249
+    },
+    {
+      "id": "sumut_samosir",
+      "province_id": "sumut",
+      "name": "Samosir",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.255
+    },
+    {
+      "id": "sumut_serdang_bedagai",
+      "province_id": "sumut",
+      "name": "Serdang Bedagai",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.271
+    },
+    {
+      "id": "sumut_batu_bara",
+      "province_id": "sumut",
+      "name": "Batu Bara",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.288
+    },
+    {
+      "id": "sumut_padang_lawas_utara",
+      "province_id": "sumut",
+      "name": "Padang Lawas Utara",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.207
+    },
+    {
+      "id": "sumut_padang_lawas",
+      "province_id": "sumut",
+      "name": "Padang Lawas",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.229
+    },
+    {
+      "id": "sumut_labuhan_batu_selatan",
+      "province_id": "sumut",
+      "name": "Labuhan Batu Selatan",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.261
+    },
+    {
+      "id": "sumut_labuhan_batu_utara",
+      "province_id": "sumut",
+      "name": "Labuhan Batu Utara",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.255
+    },
+    {
+      "id": "sumut_nias_utara",
+      "province_id": "sumut",
+      "name": "Nias Utara",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.186
+    },
+    {
+      "id": "sumut_nias_barat",
+      "province_id": "sumut",
+      "name": "Nias Barat",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.166
+    },
+    {
+      "id": "sumut_kota_sibolga",
+      "province_id": "sumut",
+      "name": "Kota Sibolga",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.235
+    },
+    {
+      "id": "sumut_kota_tanjung_balai",
+      "province_id": "sumut",
+      "name": "Kota Tanjung Balai",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.217
+    },
+    {
+      "id": "sumut_kota_pematang_siantar",
+      "province_id": "sumut",
+      "name": "Kota Pematang Siantar",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.276
+    },
+    {
+      "id": "sumut_kota_tebing_tinggi",
+      "province_id": "sumut",
+      "name": "Kota Tebing Tinggi",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.27
+    },
+    {
+      "id": "sumut_kota_medan",
+      "province_id": "sumut",
+      "name": "Kota Medan",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.288
+    },
+    {
+      "id": "sumut_kota_binjai",
+      "province_id": "sumut",
+      "name": "Kota Binjai",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.305
+    },
+    {
+      "id": "sumut_kota_padangsidimpuan",
+      "province_id": "sumut",
+      "name": "Kota Padangsidimpuan",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.264
+    },
+    {
+      "id": "sumut_kota_gunungsitoli",
+      "province_id": "sumut",
+      "name": "Kota Gunungsitoli",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.171
+    }
+  ],
+  "sumbar": [
+    {
+      "id": "sumbar_kepulauan_mentawai",
+      "province_id": "sumbar",
+      "name": "Kepulauan Mentawai",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.212
+    },
+    {
+      "id": "sumbar_pesisir_selatan",
+      "province_id": "sumbar",
+      "name": "Pesisir Selatan",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.291
+    },
+    {
+      "id": "sumbar_solok",
+      "province_id": "sumbar",
+      "name": "Solok",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.31
+    },
+    {
+      "id": "sumbar_sijunjung",
+      "province_id": "sumbar",
+      "name": "Sijunjung",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.338
+    },
+    {
+      "id": "sumbar_tanah_datar",
+      "province_id": "sumbar",
+      "name": "Tanah Datar",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.294
+    },
+    {
+      "id": "sumbar_padang_pariaman",
+      "province_id": "sumbar",
+      "name": "Padang Pariaman",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.268
+    },
+    {
+      "id": "sumbar_agam",
+      "province_id": "sumbar",
+      "name": "Agam",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.292
+    },
+    {
+      "id": "sumbar_lima_puluh_kota",
+      "province_id": "sumbar",
+      "name": "Lima Puluh Kota",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.274
+    },
+    {
+      "id": "sumbar_pasaman",
+      "province_id": "sumbar",
+      "name": "Pasaman",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.232
+    },
+    {
+      "id": "sumbar_solok_selatan",
+      "province_id": "sumbar",
+      "name": "Solok Selatan",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.349
+    },
+    {
+      "id": "sumbar_dharmasraya",
+      "province_id": "sumbar",
+      "name": "Dharmasraya",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.313
+    },
+    {
+      "id": "sumbar_pasaman_barat",
+      "province_id": "sumbar",
+      "name": "Pasaman Barat",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.237
+    },
+    {
+      "id": "sumbar_kota_padang",
+      "province_id": "sumbar",
+      "name": "Kota Padang",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.297
+    },
+    {
+      "id": "sumbar_kota_solok",
+      "province_id": "sumbar",
+      "name": "Kota Solok",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.288
+    },
+    {
+      "id": "sumbar_kota_sawah_lunto",
+      "province_id": "sumbar",
+      "name": "Kota Sawah Lunto",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.307
+    },
+    {
+      "id": "sumbar_kota_padang_panjang",
+      "province_id": "sumbar",
+      "name": "Kota Padang Panjang",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.243
+    },
+    {
+      "id": "sumbar_kota_bukittinggi",
+      "province_id": "sumbar",
+      "name": "Kota Bukittinggi",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.25
+    },
+    {
+      "id": "sumbar_kota_payakumbuh",
+      "province_id": "sumbar",
+      "name": "Kota Payakumbuh",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.262
+    },
+    {
+      "id": "sumbar_kota_pariaman",
+      "province_id": "sumbar",
+      "name": "Kota Pariaman",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.22
+    }
+  ],
+  "riau": [
+    {
+      "id": "riau_kuantan_singingi",
+      "province_id": "riau",
+      "name": "Kuantan Singingi",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.339
+    },
+    {
+      "id": "riau_indragiri_hulu",
+      "province_id": "riau",
+      "name": "Indragiri Hulu",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.296
+    },
+    {
+      "id": "riau_indragiri_hilir",
+      "province_id": "riau",
+      "name": "Indragiri Hilir",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.302
+    },
+    {
+      "id": "riau_pelalawan",
+      "province_id": "riau",
+      "name": "Pelalawan",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.339
+    },
+    {
+      "id": "riau_siak",
+      "province_id": "riau",
+      "name": "Siak",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.328
+    },
+    {
+      "id": "riau_kampar",
+      "province_id": "riau",
+      "name": "Kampar",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.331
+    },
+    {
+      "id": "riau_rokan_hulu",
+      "province_id": "riau",
+      "name": "Rokan Hulu",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.297
+    },
+    {
+      "id": "riau_bengkalis",
+      "province_id": "riau",
+      "name": "Bengkalis",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.328
+    },
+    {
+      "id": "riau_rokan_hilir",
+      "province_id": "riau",
+      "name": "Rokan Hilir",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.265
+    },
+    {
+      "id": "riau_kepulauan_meranti",
+      "province_id": "riau",
+      "name": "Kepulauan Meranti",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.295
+    },
+    {
+      "id": "riau_kota_pekanbaru",
+      "province_id": "riau",
+      "name": "Kota Pekanbaru",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.287
+    },
+    {
+      "id": "riau_kota_dumai",
+      "province_id": "riau",
+      "name": "Kota Dumai",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.292
+    }
+  ],
+  "jambi": [
+    {
+      "id": "jambi_kerinci",
+      "province_id": "jambi",
+      "name": "Kerinci",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.41
+    },
+    {
+      "id": "jambi_merangin",
+      "province_id": "jambi",
+      "name": "Merangin",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.301
+    },
+    {
+      "id": "jambi_sarolangun",
+      "province_id": "jambi",
+      "name": "Sarolangun",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.273
+    },
+    {
+      "id": "jambi_batang_hari",
+      "province_id": "jambi",
+      "name": "Batang Hari",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.291
+    },
+    {
+      "id": "jambi_muaro_jambi",
+      "province_id": "jambi",
+      "name": "Muaro Jambi",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.313
+    },
+    {
+      "id": "jambi_tanjung_jabung_timur",
+      "province_id": "jambi",
+      "name": "Tanjung Jabung Timur",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.284
+    },
+    {
+      "id": "jambi_tanjung_jabung_barat",
+      "province_id": "jambi",
+      "name": "Tanjung Jabung Barat",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.286
+    },
+    {
+      "id": "jambi_tebo",
+      "province_id": "jambi",
+      "name": "Tebo",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.298
+    },
+    {
+      "id": "jambi_bungo",
+      "province_id": "jambi",
+      "name": "Bungo",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.321
+    },
+    {
+      "id": "jambi_kota_jambi",
+      "province_id": "jambi",
+      "name": "Kota Jambi",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.268
+    },
+    {
+      "id": "jambi_kota_sungai_penuh",
+      "province_id": "jambi",
+      "name": "Kota Sungai Penuh",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.373
+    }
+  ],
+  "sumsel": [
+    {
+      "id": "sumsel_ogan_komering_ulu",
+      "province_id": "sumsel",
+      "name": "Ogan Komering Ulu",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.223
+    },
+    {
+      "id": "sumsel_ogan_komering_ilir",
+      "province_id": "sumsel",
+      "name": "Ogan Komering Ilir",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.253
+    },
+    {
+      "id": "sumsel_muara_enim",
+      "province_id": "sumsel",
+      "name": "Muara Enim",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.237
+    },
+    {
+      "id": "sumsel_lahat",
+      "province_id": "sumsel",
+      "name": "Lahat",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.26
+    },
+    {
+      "id": "sumsel_musi_rawas",
+      "province_id": "sumsel",
+      "name": "Musi Rawas",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.255
+    },
+    {
+      "id": "sumsel_musi_banyuasin",
+      "province_id": "sumsel",
+      "name": "Musi Banyuasin",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.279
+    },
+    {
+      "id": "sumsel_banyu_asin",
+      "province_id": "sumsel",
+      "name": "Banyu Asin",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.275
+    },
+    {
+      "id": "sumsel_ogan_komering_ulu_selatan",
+      "province_id": "sumsel",
+      "name": "Ogan Komering Ulu Selatan",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.291
+    },
+    {
+      "id": "sumsel_ogan_komering_ulu_timur",
+      "province_id": "sumsel",
+      "name": "Ogan Komering Ulu Timur",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.262
+    },
+    {
+      "id": "sumsel_ogan_ilir",
+      "province_id": "sumsel",
+      "name": "Ogan Ilir",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.229
+    },
+    {
+      "id": "sumsel_empat_lawang",
+      "province_id": "sumsel",
+      "name": "Empat Lawang",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.249
+    },
+    {
+      "id": "sumsel_penukal_abab_lematang_ilir",
+      "province_id": "sumsel",
+      "name": "Penukal Abab Lematang Ilir",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.253
+    },
+    {
+      "id": "sumsel_musi_rawas_utara",
+      "province_id": "sumsel",
+      "name": "Musi Rawas Utara",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.252
+    },
+    {
+      "id": "sumsel_kota_palembang",
+      "province_id": "sumsel",
+      "name": "Kota Palembang",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.225
+    },
+    {
+      "id": "sumsel_kota_prabumulih",
+      "province_id": "sumsel",
+      "name": "Kota Prabumulih",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.202
+    },
+    {
+      "id": "sumsel_kota_pagar_alam",
+      "province_id": "sumsel",
+      "name": "Kota Pagar Alam",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.248
+    },
+    {
+      "id": "sumsel_kota_lubuklinggau",
+      "province_id": "sumsel",
+      "name": "Kota Lubuklinggau",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.205
+    }
+  ],
+  "bengkulu": [
+    {
+      "id": "bengkulu_bengkulu_selatan",
+      "province_id": "bengkulu",
+      "name": "Bengkulu Selatan",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.203
+    },
+    {
+      "id": "bengkulu_rejang_lebong",
+      "province_id": "bengkulu",
+      "name": "Rejang Lebong",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.285
+    },
+    {
+      "id": "bengkulu_bengkulu_utara",
+      "province_id": "bengkulu",
+      "name": "Bengkulu Utara",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.276
+    },
+    {
+      "id": "bengkulu_kaur",
+      "province_id": "bengkulu",
+      "name": "Kaur",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.193
+    },
+    {
+      "id": "bengkulu_seluma",
+      "province_id": "bengkulu",
+      "name": "Seluma",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.237
+    },
+    {
+      "id": "bengkulu_mukomuko",
+      "province_id": "bengkulu",
+      "name": "Mukomuko",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.3
+    },
+    {
+      "id": "bengkulu_lebong",
+      "province_id": "bengkulu",
+      "name": "Lebong",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.296
+    },
+    {
+      "id": "bengkulu_kepahiang",
+      "province_id": "bengkulu",
+      "name": "Kepahiang",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.323
+    },
+    {
+      "id": "bengkulu_bengkulu_tengah",
+      "province_id": "bengkulu",
+      "name": "Bengkulu Tengah",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.28
+    },
+    {
+      "id": "bengkulu_kota_bengkulu",
+      "province_id": "bengkulu",
+      "name": "Kota Bengkulu",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.274
+    }
+  ],
+  "lampung": [
+    {
+      "id": "lampung_lampung_barat",
+      "province_id": "lampung",
+      "name": "Lampung Barat",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.277
+    },
+    {
+      "id": "lampung_tanggamus",
+      "province_id": "lampung",
+      "name": "Tanggamus",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.267
+    },
+    {
+      "id": "lampung_lampung_selatan",
+      "province_id": "lampung",
+      "name": "Lampung Selatan",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.3
+    },
+    {
+      "id": "lampung_lampung_timur",
+      "province_id": "lampung",
+      "name": "Lampung Timur",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.25
+    },
+    {
+      "id": "lampung_lampung_tengah",
+      "province_id": "lampung",
+      "name": "Lampung Tengah",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.272
+    },
+    {
+      "id": "lampung_lampung_utara",
+      "province_id": "lampung",
+      "name": "Lampung Utara",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.256
+    },
+    {
+      "id": "lampung_way_kanan",
+      "province_id": "lampung",
+      "name": "Way Kanan",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.27
+    },
+    {
+      "id": "lampung_tulangbawang",
+      "province_id": "lampung",
+      "name": "Tulangbawang",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.268
+    },
+    {
+      "id": "lampung_pesawaran",
+      "province_id": "lampung",
+      "name": "Pesawaran",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.29
+    },
+    {
+      "id": "lampung_pringsewu",
+      "province_id": "lampung",
+      "name": "Pringsewu",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.283
+    },
+    {
+      "id": "lampung_mesuji",
+      "province_id": "lampung",
+      "name": "Mesuji",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.27
+    },
+    {
+      "id": "lampung_tulang_bawang_barat",
+      "province_id": "lampung",
+      "name": "Tulang Bawang Barat",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.259
+    },
+    {
+      "id": "lampung_pesisir_barat",
+      "province_id": "lampung",
+      "name": "Pesisir Barat",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.283
+    },
+    {
+      "id": "lampung_kota_bandar_lampung",
+      "province_id": "lampung",
+      "name": "Kota Bandar Lampung",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.241
+    },
+    {
+      "id": "lampung_kota_metro",
+      "province_id": "lampung",
+      "name": "Kota Metro",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.217
+    }
+  ],
+  "babel": [
+    {
+      "id": "babel_bangka",
+      "province_id": "babel",
+      "name": "Bangka",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.19
+    },
+    {
+      "id": "babel_belitung",
+      "province_id": "babel",
+      "name": "Belitung",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.251
+    },
+    {
+      "id": "babel_bangka_barat",
+      "province_id": "babel",
+      "name": "Bangka Barat",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.163
+    },
+    {
+      "id": "babel_bangka_tengah",
+      "province_id": "babel",
+      "name": "Bangka Tengah",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.217
+    },
+    {
+      "id": "babel_bangka_selatan",
+      "province_id": "babel",
+      "name": "Bangka Selatan",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.207
+    },
+    {
+      "id": "babel_belitung_timur",
+      "province_id": "babel",
+      "name": "Belitung Timur",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.284
+    },
+    {
+      "id": "babel_kota_pangkal_pinang",
+      "province_id": "babel",
+      "name": "Kota Pangkal Pinang",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.215
+    }
+  ],
+  "kepri": [
+    {
+      "id": "kepri_karimun",
+      "province_id": "kepri",
+      "name": "Karimun",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.265
+    },
+    {
+      "id": "kepri_bintan",
+      "province_id": "kepri",
+      "name": "Bintan",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.307
+    },
+    {
+      "id": "kepri_natuna",
+      "province_id": "kepri",
+      "name": "Natuna",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.253
+    },
+    {
+      "id": "kepri_lingga",
+      "province_id": "kepri",
+      "name": "Lingga",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.324
+    },
+    {
+      "id": "kepri_kepulauan_anambas",
+      "province_id": "kepri",
+      "name": "Kepulauan Anambas",
+      "jenis_wilayah": "kabupaten",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.394
+    },
+    {
+      "id": "kepri_kota_batam",
+      "province_id": "kepri",
+      "name": "Kota Batam",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.295
+    },
+    {
+      "id": "kepri_kota_tanjung_pinang",
+      "province_id": "kepri",
+      "name": "Kota Tanjung Pinang",
+      "jenis_wilayah": "kota",
+      "konsumsi_minyak_goreng_perkapita_minggu": 0.299
+    }
+  ]
+}

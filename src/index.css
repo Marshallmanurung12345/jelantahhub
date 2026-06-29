@@ -1,119 +1,191 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ── Base Resets ── */
-* { box-sizing: border-box; }
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-html {
-  scroll-behavior: smooth;
+  :root {
+    --color-orange: #ff6900;
+    --color-orange-dark: #be7600;
+    --color-orange-light: #ff7819;
+    --color-text: #191919;
+    --color-text-muted: #303030;
+    --color-border: #e8e8e8;
+    --color-surface: #ffffff;
+    --color-surface-soft: #f7f8fa;
+    --color-surface-alt: #f7f7f7;
+    --color-placeholder: #aeaeae;
+    --shadow-raised: 0 4px 12px rgba(25, 25, 25, 0.08);
+    --shadow-nav: rgba(25, 25, 25, 0.06) 0 6px 16px 0;
+    --shadow-overlay: 0 8px 24px rgba(25, 25, 25, 0.12);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: "MiSans Latin", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, "Helvetica Neue", sans-serif;
+    background:
+      linear-gradient(180deg, rgba(255, 105, 0, 0.04), transparent 240px),
+      var(--color-surface);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ::selection {
+    background: rgba(255, 105, 0, 0.16);
+    color: var(--color-text);
+  }
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #F8FAFC;
-  color: #111827;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-}
-
-h1, h2, h3, h4, h5 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-/* ── Scroll Progress Bar ── */
 #scroll-progress {
   position: fixed;
   top: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(90deg, #16A34A, #22C55E, #FACC15);
+  background: linear-gradient(90deg, #ff6900, #ff8733);
   z-index: 9999;
   transition: width 0.1s ease;
 }
 
-/* ── Custom Components ── */
 @layer components {
-  .btn-primary {
-    @apply bg-brand-green text-white px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 hover:bg-brand-green-light hover:-translate-y-0.5 active:translate-y-0;
-  }
-  .btn-primary:hover {
-    box-shadow: 0 0 30px rgba(22, 163, 74, 0.3);
+  .page-shell {
+    @apply min-h-screen bg-white text-[#191919];
   }
 
-  .btn-outline {
-    @apply border-2 border-brand-green text-brand-green px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 hover:bg-brand-green hover:text-white hover:-translate-y-0.5;
+  .page-section {
+    @apply py-16 md:py-20 lg:py-[100px];
   }
 
-  .btn-white {
-    @apply bg-white text-brand-green px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 hover:bg-green-50 hover:shadow-lg hover:-translate-y-0.5;
+  .page-container {
+    @apply mx-auto w-full max-w-[1440px] px-3 md:px-4 lg:px-8;
+  }
+
+  .section-eyebrow {
+    @apply mb-4 inline-flex items-center gap-2 border border-[#E8E8E8] bg-[#F7F7F7] px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-[#303030];
   }
 
   .section-label {
-    @apply inline-block text-brand-green font-semibold text-sm tracking-widest uppercase bg-green-50 border border-green-200 px-4 py-1.5 rounded-full mb-4;
+    @apply section-eyebrow;
   }
 
   .section-title {
-    @apply text-4xl md:text-5xl font-bold text-brand-text leading-tight mb-5;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    @apply text-[30px] font-bold leading-[1.25] text-[#191919] md:text-[32px];
   }
 
   .section-subtitle {
-    @apply text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto;
+    @apply mt-4 max-w-2xl text-[14px] leading-[1.6] text-[#303030];
   }
 
-  .glass-card {
-    @apply bg-white/80 backdrop-blur-sm border border-white/50 rounded-3xl shadow-card;
+  .surface-card {
+    @apply border border-[#E8E8E8] bg-white;
+    border-radius: 0;
   }
 
-  .glass-nav {
-    @apply bg-white/90 backdrop-blur-xl border-b border-gray-100 shadow-sm;
+  .surface-soft {
+    @apply bg-[#F7F8FA];
+    border-radius: 0;
+  }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center whitespace-nowrap bg-[#191919] px-8 text-[14px] font-normal text-white transition-all duration-200 hover:-translate-y-px hover:bg-black active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-[#AEAEAE];
+    height: 36px;
+    border-radius: 12px;
+    box-shadow: none;
+  }
+
+  .button-primary:hover {
+    box-shadow: 0 4px 12px rgba(25, 25, 25, 0.15);
+  }
+
+  .button-accent {
+    @apply inline-flex items-center justify-center whitespace-nowrap bg-[#FF6900] px-8 text-[14px] font-normal text-white transition-colors duration-200 hover:bg-[#BE7600] active:scale-[0.98];
+    height: 36px;
+    border-radius: 12px;
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center bg-transparent px-3 text-[14px] font-normal text-[#191919] transition-colors duration-200 hover:text-[#FF6900];
+    height: 34px;
+  }
+
+  .button-secondary:hover {
+    text-decoration: underline;
+  }
+
+  .button-ghost {
+    @apply inline-flex items-center justify-center bg-transparent px-3 text-[14px] font-normal text-[#191919] transition-colors duration-200 hover:bg-[#F7F7F7] hover:text-[#FF6900];
+    height: 44px;
+  }
+
+  .input-field {
+    @apply w-full border border-[#E8E8E8] bg-transparent px-4 text-[14px] text-[#191919] outline-none transition-all duration-200 placeholder:text-[#AEAEAE];
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  .input-field:focus {
+    border-color: #ff6900;
+    box-shadow: 0 0 0 2px rgba(255, 105, 0, 0.1);
+  }
+
+  .orange-chip {
+    @apply inline-flex items-center bg-[#FF6900] px-2 py-1 text-[12px] font-semibold text-white;
+    border-radius: 4px;
   }
 }
 
-/* ── Utility Animations ── */
 @layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
   .text-gradient-green {
-    background: linear-gradient(135deg, #16A34A, #22C55E);
+    background: linear-gradient(135deg, #ff6900, #be7600);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .text-gradient-gold {
-    background: linear-gradient(135deg, #D97706, #FACC15);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .bg-mesh-green {
-    background-color: #F8FAFC;
+  .hairline-grid {
     background-image:
-      radial-gradient(at 40% 20%, rgba(22, 163, 74, 0.08) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, rgba(34, 197, 94, 0.06) 0px, transparent 50%),
-      radial-gradient(at 0% 50%, rgba(250, 204, 21, 0.05) 0px, transparent 50%);
+      linear-gradient(rgba(25, 25, 25, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(25, 25, 25, 0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
   }
 
-  .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-card-hover;
+  .orange-wash {
+    background:
+      radial-gradient(circle at top left, rgba(255, 105, 0, 0.16), transparent 28%),
+      radial-gradient(circle at bottom right, rgba(255, 120, 25, 0.12), transparent 32%);
   }
 }
 
-/* ── SVG Map Styles ── */
 .province-path {
   cursor: pointer;
   transition: all 0.2s ease;
   stroke: #ffffff;
   stroke-width: 0.8;
-}
-
-.province-path:hover {
-  filter: brightness(1.15) drop-shadow(0 0 8px rgba(22, 163, 74, 0.5));
-  stroke-width: 1.5;
 }
 
 .map-tooltip {
@@ -122,42 +194,28 @@ h1, h2, h3, h4, h5 {
   z-index: 50;
 }
 
-/* ── Recharts Custom ── */
 .recharts-cartesian-grid-horizontal line,
 .recharts-cartesian-grid-vertical line {
-  stroke: #F3F4F6;
+  stroke: #e8e8e8;
 }
 
 .recharts-tooltip-wrapper {
   outline: none !important;
 }
 
-/* ── Scrollbar ── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f1f5f9; }
-::-webkit-scrollbar-thumb { background: #22C55E; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #16A34A; }
-
-/* ── Hero Illustration SVG ── */
-.hero-orb {
-  animation: float 6s ease-in-out infinite;
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-.hero-orb-2 {
-  animation: float 8s ease-in-out infinite reverse;
+::-webkit-scrollbar-track {
+  background: #f7f7f7;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(5deg); }
+::-webkit-scrollbar-thumb {
+  background: #191919;
+  border-radius: 3px;
 }
 
-@keyframes draw-line {
-  from { stroke-dashoffset: 500; }
-  to { stroke-dashoffset: 0; }
-}
-
-.timeline-line {
-  stroke-dasharray: 500;
-  animation: draw-line 2s ease forwards;
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6900;
 }
