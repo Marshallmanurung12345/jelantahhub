@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight, Filter } from "lucide-react";
+import { Filter } from "lucide-react";
 
 import regionalData from "../data/regional_enriched.json";
 import provincesData from "../data/provinces-map.json";
@@ -10,69 +10,6 @@ function formatValue(value) {
     minimumFractionDigits: 3,
     maximumFractionDigits: 3,
   });
-}
-
-function ListCard({ title, badge, items, type = "high" }) {
-  const isHigh = type === "high";
-
-  return (
-    <div className="surface-card bg-white">
-      <div className="grid gap-px border-b border-[#E8E8E8] bg-[#E8E8E8] md:grid-cols-[1fr_64px]">
-        <div className="bg-white p-5 md:p-6">
-          <span
-            className={`inline-flex items-center px-2 py-1 text-[12px] font-semibold ${
-              isHigh
-                ? "bg-[#FFF4ED] text-[#BE7600]"
-                : "bg-[#F7F7F7] text-[#303030]"
-            }`}
-          >
-            {badge}
-          </span>
-          <div className="mt-3 text-[12px] uppercase tracking-[0.12em] text-[#AEAEAE]">
-            Satuan: liter/orang/minggu
-          </div>
-          <h3 className="mt-3 text-[24px] font-semibold leading-6 text-[#191919]">
-            {title}
-          </h3>
-        </div>
-        <div className="flex items-center justify-center bg-[#F7F8FA] p-4">
-          {isHigh ? (
-            <ArrowUpRight className="h-5 w-5 text-[#FF6900]" />
-          ) : (
-            <ArrowDownRight className="h-5 w-5 text-[#BE7600]" />
-          )}
-        </div>
-      </div>
-
-      <div className="grid gap-px bg-[#E8E8E8]">
-        {items.map((item, index) => (
-          <div
-            key={`${item.province_id}-${item.name}-${index}`}
-            className="grid gap-3 bg-white px-4 py-3 md:grid-cols-[36px_1fr_auto] md:items-center md:px-5"
-          >
-            <div className="flex h-9 w-9 items-center justify-center border border-[#E8E8E8] bg-[#F7F8FA] text-[12px] font-bold text-[#191919]">
-              {index + 1}
-            </div>
-
-            <div>
-              <h4 className="text-[16px] font-bold leading-5 text-[#191919]">
-                {item.name}
-              </h4>
-              <p className="mt-1 text-[12px] uppercase tracking-[0.1em] text-[#AEAEAE]">
-                {item.jenis_wilayah} / {item.province_name}
-              </p>
-            </div>
-
-            <div className="text-left md:text-right">
-              <div className="text-[16px] font-bold leading-5 text-[#191919]">
-                {formatValue(item.konsumsi_minyak_goreng_perkapita_minggu)}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
 }
 
 export default function ConsumptionLeaderboard() {
@@ -110,7 +47,7 @@ export default function ConsumptionLeaderboard() {
     return flatRegional.filter((item) => item.province_id === selectedProvince);
   }, [flatRegional, selectedProvince]);
 
-  const highestTen = useMemo(
+  const highestFive = useMemo(
     () =>
       [...filteredData]
         .sort(
@@ -118,11 +55,11 @@ export default function ConsumptionLeaderboard() {
             Number(b.konsumsi_minyak_goreng_perkapita_minggu ?? 0) -
             Number(a.konsumsi_minyak_goreng_perkapita_minggu ?? 0),
         )
-        .slice(0, 10),
+        .slice(0, 5),
     [filteredData],
   );
 
-  const lowestTen = useMemo(
+  const lowestFive = useMemo(
     () =>
       [...filteredData]
         .sort(
@@ -130,81 +67,142 @@ export default function ConsumptionLeaderboard() {
             Number(a.konsumsi_minyak_goreng_perkapita_minggu ?? 0) -
             Number(b.konsumsi_minyak_goreng_perkapita_minggu ?? 0),
         )
-        .slice(0, 10),
+        .slice(0, 5),
     [filteredData],
   );
 
+  // Compute local averages for highlights
+  const avgValue = useMemo(() => {
+    if (!filteredData.length) return 0;
+    const sum = filteredData.reduce((acc, curr) => acc + Number(curr.konsumsi_minyak_goreng_perkapita_minggu ?? 0), 0);
+    return sum / filteredData.length;
+  }, [filteredData]);
+
   return (
-    <section id="leaderboard" className="page-section bg-white">
+    <section id="leaderboard" className="page-section bg-[#fcfbf9] border-t border-[#eae6df]">
       <div className="page-container">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5 }}
-          className="grid gap-6 lg:grid-cols-[1fr_320px] lg:items-end"
-        >
-          <div className="max-w-[760px]">
-            <span className="section-eyebrow">Insight wilayah</span>
-            <h2 className="section-title">
-              Konsumsi minyak goreng tertinggi dan terendah
-            </h2>
+        
+        {/* Layout Split: Left for Editorial Intro, Right for Filtered Visual Dot Plot */}
+        <div className="grid gap-16 lg:grid-cols-[1fr_420px] lg:items-start">
+          
+          <div>
+            <span className="section-eyebrow">Insight Spasial</span>
+            <h2 className="section-title">Kesenjangan Konsumsi Nasional</h2>
             <p className="section-subtitle">
-              Menampilkan 10 kabupaten atau kota dengan konsumsi minyak goreng
-              per kapita per minggu tertinggi dan terendah. Satuan angka pada
-              daftar ini ditampilkan seragam untuk memudahkan perbandingan antarwilayah.
+              Distribusi penggunaan minyak goreng per kapita menunjukkan perbedaan mencolok 
+              antardaerah di Indonesia. Pola ini memengaruhi seberapa besar potensi pengumpulan 
+              minyak jelantah di setiap daerah.
             </p>
+
+            {/* Editorial Stats Block */}
+            <div className="mt-12 grid gap-8 sm:grid-cols-2">
+              <div className="border-t border-[#eae6df] pt-6">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#666666]">
+                  Rata-rata Konsumsi Wilayah
+                </span>
+                <div className="mt-3 text-[48px] font-medium text-[#111111] font-serif leading-none">
+                  {formatValue(avgValue)}
+                </div>
+                <p className="mt-2 text-[13px] text-[#444444] leading-relaxed">
+                  Liter per orang per minggu di wilayah yang sedang Anda filter.
+                </p>
+              </div>
+
+              <div className="border-t border-[#eae6df] pt-6">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#e05300]">
+                  Puncak Tertinggi
+                </span>
+                <div className="mt-3 text-[48px] font-medium text-[#e05300] font-serif leading-none">
+                  {highestFive[0] ? formatValue(highestFive[0].konsumsi_minyak_goreng_perkapita_minggu) : "0,00"}
+                </div>
+                <p className="mt-2 text-[13px] text-[#444444] leading-relaxed">
+                  Konsumsi tertinggi dicatatkan oleh {highestFive[0]?.name || "N/A"}.
+                </p>
+              </div>
+            </div>
+
+            {/* Filter Widget - Minimalist */}
+            <div className="mt-12 bg-[#f4f1eb] p-6 border border-[#eae6df] max-w-[360px]">
+              <label className="mb-2 flex items-center gap-2 text-[12px] font-bold text-[#111111] uppercase tracking-wider">
+                <Filter className="h-3.5 w-3.5 text-[#e05300]" />
+                Filter Fokus Provinsi
+              </label>
+              <select
+                value={selectedProvince}
+                onChange={(event) => setSelectedProvince(event.target.value)}
+                className="w-full bg-transparent border-b border-[#111111] py-2 text-[15px] outline-none text-[#111111] cursor-pointer"
+              >
+                <option value="all">Seluruh Indonesia</option>
+                {provinceOptions.map((province) => (
+                  <option key={province.id} value={province.id}>
+                    {province.name}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
 
-          <div className="surface-soft p-4 md:p-5">
-            <label className="mb-3 flex items-center gap-2 text-[14px] font-bold text-[#191919]">
-              <Filter className="h-4 w-4 text-[#FF6900]" />
-              Filter provinsi
-            </label>
-            <select
-              value={selectedProvince}
-              onChange={(event) => setSelectedProvince(event.target.value)}
-              className="input-field bg-white"
-            >
-              <option value="all">Semua provinsi</option>
-              {provinceOptions.map((province) => (
-                <option key={province.id} value={province.id}>
-                  {province.name}
-                </option>
-              ))}
-            </select>
+          {/* Right Column: Visual Dot Plot / List style graphic */}
+          <div className="bg-[#f4f1eb] p-8 border border-[#eae6df] space-y-12">
+            
+            {/* Highest Group */}
+            <div>
+              <div className="flex items-center gap-2 mb-6 border-b border-[#eae6df] pb-3">
+                <span className="h-2 w-2 bg-[#e05300] rounded-full" />
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#111111]">
+                  Intensitas Tertinggi (5 Teratas)
+                </span>
+              </div>
+
+              <div className="space-y-6">
+                {highestFive.map((item, index) => (
+                  <div key={`high-${item.name}-${index}`} className="flex justify-between items-start">
+                    <div>
+                      <h4 className="text-[14px] font-bold text-[#111111]">{item.name}</h4>
+                      <p className="text-[11px] text-[#666666] uppercase mt-0.5">{item.province_name}</p>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-[16px] font-medium text-[#111111] font-serif">
+                        {formatValue(item.konsumsi_minyak_goreng_perkapita_minggu)}
+                      </span>
+                      <p className="text-[9px] text-[#666666] uppercase mt-0.5">L/org/mg</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Lowest Group */}
+            <div>
+              <div className="flex items-center gap-2 mb-6 border-b border-[#eae6df] pb-3">
+                <span className="h-2 w-2 bg-[#444444] rounded-full" />
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#111111]">
+                  Intensitas Terendah (5 Terbawah)
+                </span>
+              </div>
+
+              <div className="space-y-6">
+                {lowestFive.map((item, index) => (
+                  <div key={`low-${item.name}-${index}`} className="flex justify-between items-start">
+                    <div>
+                      <h4 className="text-[14px] font-bold text-[#111111]">{item.name}</h4>
+                      <p className="text-[11px] text-[#666666] uppercase mt-0.5">{item.province_name}</p>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-[16px] font-medium text-[#111111] font-serif">
+                        {formatValue(item.konsumsi_minyak_goreng_perkapita_minggu)}
+                      </span>
+                      <p className="text-[9px] text-[#666666] uppercase mt-0.5">L/org/mg</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
-        </motion.div>
 
-        <div className="mt-10 grid gap-6 xl:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.45 }}
-          >
-            <ListCard
-              title="Top 10 tertinggi"
-              badge="Konsumsi paling tinggi"
-              items={highestTen}
-              type="high"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.45, delay: 0.08 }}
-          >
-            <ListCard
-              title="Top 10 terendah"
-              badge="Konsumsi paling rendah"
-              items={lowestTen}
-              type="low"
-            />
-          </motion.div>
         </div>
+
       </div>
     </section>
   );

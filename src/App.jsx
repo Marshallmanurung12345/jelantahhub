@@ -9,7 +9,6 @@ import SimulationSection from "./components/SimulationSection";
 import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
 import SmoothScroll from "./components/SmoothScroll";
-import JourneySection from "./components/JourneySection";
 import ConsumptionLeaderboard from "./components/ConsumptionLeaderboard";
 import "./index.css";
 
@@ -54,7 +53,6 @@ export default function App() {
         <ConsumptionLeaderboard />
         <CalculatorSection />
         <SimulationSection />
-        <JourneySection />
         <CTASection />
       </main>
       <Footer />

@@ -17,44 +17,44 @@ import regionalData from "../data/regional_enriched.json";
 import kabkotaGeoJSON from "../data/geo/kabkota-indonesia.json";
 
 const LEVEL_COLORS = {
-  low: "#FFE3CF",
-  medium: "#FFB47F",
-  high: "#FF8733",
-  "very-high": "#FF6900",
+  low: "#eae6df",
+  medium: "#ebd2bf",
+  high: "#d4976a",
+  "very-high": "#b95213",
 };
 
 const LEVEL_LABELS = {
-  low: "Low",
-  medium: "Medium",
-  high: "High",
-  "very-high": "Very High",
+  low: "Rendah",
+  medium: "Sedang",
+  high: "Tinggi",
+  "very-high": "Sangat Tinggi",
 };
 
 const DEFAULT_PROVINCE_STYLE = {
-  weight: 1,
+  weight: 0.8,
   opacity: 1,
-  color: "#FFFFFF",
+  color: "#fcfbf9",
   fillOpacity: 0.9,
 };
 
 const ACTIVE_PROVINCE_STYLE = {
-  weight: 1.5,
+  weight: 1.2,
   opacity: 1,
-  color: "#FFFFFF",
+  color: "#111111",
   fillOpacity: 1,
 };
 
 const DEFAULT_REGIONAL_STYLE = {
-  weight: 1,
+  weight: 0.6,
   opacity: 1,
-  color: "#FFFFFF",
-  fillOpacity: 0.75,
+  color: "#fcfbf9",
+  fillOpacity: 0.85,
 };
 
 const ACTIVE_REGIONAL_STYLE = {
-  weight: 2,
+  weight: 1.2,
   opacity: 1,
-  color: "#191919",
+  color: "#111111",
   fillOpacity: 1,
 };
 
@@ -143,6 +143,7 @@ function getProvinceName(feature) {
   );
 }
 
+// Helper to resolve city/district name from properties
 function getKabkotaName(feature) {
   return (
     feature?.properties?.KabKota ||
@@ -202,7 +203,6 @@ export default function MapSection() {
   const [selectedProvinceId, setSelectedProvinceId] = useState(null);
   const [hoveredProvince, setHoveredProvince] = useState(null);
   const [hoveredRegional, setHoveredRegional] = useState(null);
-  const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
 
   const provincesMap = useMemo(() => {
     const map = {};
@@ -256,24 +256,12 @@ export default function MapSection() {
     };
   }, [selectedProvinceId]);
 
-  const updateTooltipPosition = (event) => {
-    const rect = containerRef.current?.getBoundingClientRect();
-    if (!rect) return;
-
-    setTooltipPos({
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top,
-    });
-  };
-
   const handleProvinceEnter = (event, provinceData) => {
-    updateTooltipPosition(event.originalEvent ?? event);
     setHoveredProvince(provinceData);
     setHoveredRegional(null);
   };
 
   const handleProvinceMove = (event, provinceData) => {
-    updateTooltipPosition(event.originalEvent ?? event);
     setHoveredProvince(provinceData);
     setHoveredRegional(null);
   };
@@ -283,13 +271,11 @@ export default function MapSection() {
   };
 
   const handleRegionalEnter = (event, regionalDataItem) => {
-    updateTooltipPosition(event.originalEvent ?? event);
     setHoveredRegional(regionalDataItem);
     setHoveredProvince(null);
   };
 
   const handleRegionalMove = (event, regionalDataItem) => {
-    updateTooltipPosition(event.originalEvent ?? event);
     setHoveredRegional(regionalDataItem);
     setHoveredProvince(null);
   };
@@ -317,14 +303,14 @@ export default function MapSection() {
     const provinceId = normalizeProvinceName(geoName);
     const provinceData = provinceId ? provincesMap[provinceId] : null;
 
-    if (!provinceData) return "#E2E8F0";
-    return LEVEL_COLORS[provinceData.level] ?? "#E2E8F0";
+    if (!provinceData) return "#eae6df";
+    return LEVEL_COLORS[provinceData.level] ?? "#eae6df";
   };
 
   const getRegionalFillColor = (feature) => {
     const item = findRegionalItemByFeature(feature, selectedRegionalList);
-    if (!item) return "#E2E8F0";
-    return LEVEL_COLORS[getRegionalLevel(item)] ?? "#E2E8F0";
+    if (!item) return "#eae6df";
+    return LEVEL_COLORS[getRegionalLevel(item)] ?? "#eae6df";
   };
 
   const onEachProvince = (feature, layer) => {
@@ -343,7 +329,7 @@ export default function MapSection() {
       mouseover: (event) => {
         event.target.setStyle({
           ...ACTIVE_PROVINCE_STYLE,
-          fillColor: "#FFB47F",
+          fillColor: "#e9c3a3",
         });
         handleProvinceEnter(event, provinceData);
       },
@@ -377,7 +363,7 @@ export default function MapSection() {
       mouseover: (event) => {
         event.target.setStyle({
           ...ACTIVE_REGIONAL_STYLE,
-          fillColor: "#FFB47F",
+          fillColor: "#e9c3a3",
         });
         handleRegionalEnter(event, item);
       },
@@ -394,54 +380,42 @@ export default function MapSection() {
     });
   };
 
-  const activeTooltip = hoveredRegional || hoveredProvince;
+  const activeFocus = hoveredRegional || hoveredProvince || selectedProvince;
 
   return (
-    <section id="map" className="page-section bg-[#F7F8FA]">
-      <div className="page-container max-w-[1440px]">
+    <section id="map" className="page-section bg-[#fcfbf9] border-t border-[#eae6df]">
+      <div className="page-container">
+        
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-16 max-w-[720px]"
         >
-          <span className="section-label">Peta dampak</span>
-          <h2 className="section-title">Peta dampak regional interaktif</h2>
+          <span className="section-label">Data Spasial</span>
+          <h2 className="section-title">Peta Sirkularitas Jelantah Regional</h2>
           <p className="section-subtitle">
             {mapLevel === "province"
-              ? "Klik provinsi untuk masuk ke peta kabupaten atau kota dan lihat potensi dampaknya."
-              : `Hover kabupaten atau kota di ${selectedProvince?.name || ""} untuk melihat detail.`}
+              ? "Pilih provinsi untuk masuk ke detail kabupaten/kota dan eksplorasi data konsumsi serta potensi biodiesel."
+              : `Menjelajahi kabupaten/kota di ${selectedProvince?.name || ""}. Klik tombol di kiri atas untuk kembali.`}
           </p>
         </motion.div>
 
-        <div className="grid gap-6">
+        <div className="grid gap-8 lg:grid-cols-[1fr_360px] items-stretch">
+          
           <div
             ref={containerRef}
-            className="surface-card relative overflow-hidden"
-            style={{ height: "720px" }}
+            className="relative bg-[#f4f1eb] overflow-hidden min-h-[500px] lg:min-h-[620px] flex flex-col justify-between"
           >
-            <div
-              className="pointer-events-none absolute inset-0 z-[1]"
-              aria-hidden="true"
-            >
+            <div className="pointer-events-none absolute inset-0 z-[1] opacity-30" aria-hidden="true">
               <svg width="100%" height="100%">
                 <defs>
-                  <pattern
-                    id="grid"
-                    width="80"
-                    height="80"
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <path
-                      d="M 80 0 L 0 0 0 80"
-                      fill="none"
-                      stroke="rgba(25,25,25,0.06)"
-                      strokeWidth="1"
-                    />
+                  <pattern id="mapGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#eae6df" strokeWidth="1" />
                   </pattern>
                 </defs>
-                <rect width="100%" height="100%" fill="url(#grid)" />
+                <rect width="100%" height="100%" fill="url(#mapGrid)" />
               </svg>
             </div>
 
@@ -449,40 +423,25 @@ export default function MapSection() {
               <button
                 type="button"
                 onClick={handleBackToProvince}
-                className="absolute left-4 top-4 z-[8] border border-[#E8E8E8] bg-white px-4 py-2 text-[14px] text-[#191919] transition hover:bg-[#F7F7F7]"
+                className="absolute left-6 top-6 z-[10] bg-[#111111] text-white px-4 py-2 text-[12px] font-bold uppercase tracking-wider transition hover:bg-[#333333]"
               >
                 ← Kembali ke Provinsi
               </button>
             )}
 
-            {mapLevel === "regional" &&
-              (filteredKabkotaGeoJSON?.features?.length ? (
-                <div className="absolute right-4 top-4 z-[8] border border-[#E8E8E8] bg-white px-3 py-2 text-[14px] text-[#191919]">
-                  Kab/kota tampil: {filteredKabkotaGeoJSON.features.length}
-                </div>
-              ) : (
-                <div className="absolute right-4 top-4 z-[8] border border-[#E8E8E8] bg-[#FFF4ED] px-3 py-2 text-[14px] text-[#BE7600]">
-                  Tidak ada kab/kota yang cocok
-                </div>
-              ))}
-
             <div className="absolute inset-0 z-[2]" data-lenis-prevent>
               <MapContainer
-                key={
-                  mapLevel === "regional"
-                    ? `regional-${selectedProvinceId}`
-                    : "province-view"
-                }
+                key={mapLevel === "regional" ? `reg-${selectedProvinceId}` : "prov"}
                 center={MAP_CENTER}
                 zoom={MAP_ZOOM}
                 minZoom={4}
                 maxZoom={10}
                 zoomControl={true}
                 scrollWheelZoom={false}
-                className="h-full w-full"
+                className="h-full w-full bg-transparent"
               >
                 <TileLayer
-                  attribution="&copy; OpenStreetMap contributors"
+                  attribution=""
                   url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png"
                 />
 
@@ -501,24 +460,22 @@ export default function MapSection() {
                       <CircleMarker
                         key={province.id}
                         center={province.coordinates}
-                        radius={6}
+                        radius={5}
                         pathOptions={{
-                          color: "#ffffff",
-                          weight: 2,
-                          fillColor: LEVEL_COLORS[province.level] ?? "#22C55E",
+                          color: "#fcfbf9",
+                          weight: 1.5,
+                          fillColor: LEVEL_COLORS[province.level] ?? "#eae6df",
                           fillOpacity: 1,
                         }}
                         eventHandlers={{
-                          mouseover: (event) =>
-                            handleProvinceEnter(event, province),
-                          mousemove: (event) =>
-                            handleProvinceMove(event, province),
+                          mouseover: (event) => handleProvinceEnter(event, province),
+                          mousemove: (event) => handleProvinceMove(event, province),
                           mouseout: handleProvinceLeave,
                           click: () => handleProvinceClick(province.id),
                         }}
                       >
-                        <Tooltip direction="top" offset={[0, -8]} opacity={1}>
-                          <span className="font-semibold">{province.name}</span>
+                        <Tooltip direction="top" offset={[0, -6]} opacity={0.9}>
+                          <span className="font-medium text-[12px] text-[#111111]">{province.name}</span>
                         </Tooltip>
                       </CircleMarker>
                     ))}
@@ -528,7 +485,7 @@ export default function MapSection() {
                     {filteredKabkotaGeoJSON?.features?.length ? (
                       <>
                         <GeoJSON
-                          key={`regional-${selectedProvinceId}`}
+                          key={`reg-geo-${selectedProvinceId}`}
                           data={filteredKabkotaGeoJSON}
                           style={(feature) => ({
                             ...DEFAULT_REGIONAL_STYLE,
@@ -547,157 +504,135 @@ export default function MapSection() {
               </MapContainer>
             </div>
 
-            <AnimatePresence>
-              {activeTooltip && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.96, y: 8 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.96, y: 8 }}
-                  transition={{ duration: 0.16 }}
-                  className="absolute z-[7] pointer-events-none"
-                  style={{
-                    left: Math.min(tooltipPos.x + 16, 1180),
-                    top: Math.min(tooltipPos.y + 16, 620),
-                  }}
-                >
-                  <div className="min-w-[300px] border border-[#E8E8E8] bg-white p-5 shadow-[0_8px_24px_rgba(25,25,25,0.12)]">
-                    <div className="mb-3 flex items-center gap-3 border-b border-[#E8E8E8] pb-3">
-                      <div
-                        className="h-4 w-4 rounded-full"
-                        style={{
-                          background:
-                            mapLevel === "regional" && hoveredRegional
-                              ? LEVEL_COLORS[getRegionalLevel(hoveredRegional)]
-                              : LEVEL_COLORS[activeTooltip.level],
-                        }}
-                      />
-                      <div>
-                        <h4 className="text-[16px] font-bold text-[#191919]">
-                          {activeTooltip.name}
-                        </h4>
-                        <p className="text-[12px] uppercase tracking-[0.12em] text-[#AEAEAE]">
-                          {mapLevel === "regional" && hoveredRegional
-                            ? hoveredRegional.jenis_wilayah
-                            : "provinsi"}
-                        </p>
-                      </div>
-                    </div>
-
-                    {mapLevel === "regional" && hoveredRegional ? (
-                      <div className="space-y-3 text-[14px]">
-                        <div>
-                          <div className="mb-0.5 font-medium text-gray-500">
-                            Konsumsi Minyak Goreng
-                          </div>
-                          <div className="text-base font-bold text-gray-800">
-                            {formatDecimal(
-                              hoveredRegional.konsumsi_minyak_goreng_perkapita_minggu,
-                            )}{" "}
-                            <span className="text-xs font-normal text-gray-500">
-                              {hoveredRegional.satuan_konsumsi}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div>
-                          <div className="mb-0.5 font-medium text-amber-600">
-                            Estimasi UCO
-                          </div>
-                          <div className="text-base font-bold text-amber-700">
-                            {formatDecimal(hoveredRegional.uco_estimate)}{" "}
-                            <span className="text-xs font-normal text-gray-500">
-                              {hoveredRegional.satuan_uco}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div>
-                          <div className="mb-0.5 font-medium text-green-600">
-                            Estimasi Biodiesel
-                          </div>
-                          <div className="text-base font-bold text-green-700">
-                            {formatDecimal(hoveredRegional.biodiesel_estimate)}{" "}
-                            <span className="text-xs font-normal text-gray-500">
-                              {hoveredRegional.satuan_biodiesel}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div>
-                          <div className="mb-0.5 font-medium text-blue-500">
-                            Reduksi Emisi
-                          </div>
-                          <div className="text-base font-bold text-blue-600">
-                            {formatDecimal(hoveredRegional.carbon_estimate)}{" "}
-                            <span className="text-xs font-normal text-gray-500">
-                              {hoveredRegional.satuan_carbon}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="space-y-3 text-[14px]">
-                        <div>
-                          <div className="mb-0.5 font-medium text-gray-500">
-                            Potensi UCO
-                          </div>
-                          <div className="text-base font-bold text-gray-800">
-                            {Number(activeTooltip.uco).toLocaleString("id-ID")}{" "}
-                            <span className="text-xs font-normal text-gray-500">
-                              Liter/thn
-                            </span>
-                          </div>
-                        </div>
-
-                        <div>
-                          <div className="mb-0.5 font-medium text-green-600">
-                            Biodiesel
-                          </div>
-                          <div className="text-base font-bold text-green-700">
-                            {Number(activeTooltip.biodiesel).toLocaleString(
-                              "id-ID",
-                            )}{" "}
-                            <span className="text-xs font-normal text-gray-500">
-                              Liter/thn
-                            </span>
-                          </div>
-                        </div>
-
-                        <div>
-                          <div className="mb-0.5 font-medium text-blue-500">
-                            Reduksi Emisi
-                          </div>
-                          <div className="text-base font-bold text-blue-600">
-                            {Number(activeTooltip.carbon).toLocaleString(
-                              "id-ID",
-                            )}{" "}
-                            <span className="text-xs font-normal text-gray-500">
-                              Ton CO₂
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            <div className="absolute bottom-6 left-1/2 z-[6] flex -translate-x-1/2 gap-6 border border-[#E8E8E8] bg-white px-6 py-3">
+            <div className="absolute bottom-6 left-6 z-[6] flex flex-wrap gap-4 bg-[#fcfbf9]/90 backdrop-blur-sm px-4 py-2 border border-[#eae6df]">
               {Object.entries(LEVEL_LABELS).map(([level, label]) => (
                 <div key={level} className="flex items-center gap-2">
                   <div
-                    className="h-3.5 w-3.5 rounded-full"
+                    className="h-3 w-3"
                     style={{ background: LEVEL_COLORS[level] }}
                   />
-                  <span className="text-[12px] text-[#303030]">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#444444]">
                     {label}
                   </span>
                 </div>
               ))}
             </div>
           </div>
+
+          <div className="bg-[#f4f1eb] p-8 flex flex-col justify-between border border-[#eae6df]">
+            <div>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#e05300]">Fokus Informasi</span>
+              
+              {activeFocus ? (
+                <div className="mt-8">
+                  <span className="text-[12px] uppercase tracking-wider text-[#666666]">
+                    {"jenis_wilayah" in activeFocus ? activeFocus.jenis_wilayah : "PROVINSI"}
+                  </span>
+                  <h3 className="text-[28px] font-medium text-[#111111] font-serif leading-tight mt-1">
+                    {activeFocus.name}
+                  </h3>
+
+                  <div className="mt-8 space-y-6">
+                    <div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#666666]">
+                        Konsumsi Minyak Goreng
+                      </div>
+                      <div className="text-[22px] font-medium text-[#111111] font-serif mt-1">
+                        {"konsumsi_minyak_goreng_perkapita_minggu" in activeFocus ? (
+                          <>
+                            {formatDecimal(activeFocus.konsumsi_minyak_goreng_perkapita_minggu)}{" "}
+                            <span className="text-[14px] font-sans text-[#444444]">
+                              {activeFocus.satuan_konsumsi || "L/orang/minggu"}
+                            </span>
+                          </>
+                        ) : (
+                          "Pilih kota/kab"
+                        )}
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#e05300]">
+                        Potensi Minyak Jelantah (UCO)
+                      </div>
+                      <div className="text-[22px] font-medium text-[#e05300] font-serif mt-1">
+                        {"uco_estimate" in activeFocus ? (
+                          <>
+                            {formatDecimal(activeFocus.uco_estimate)}{" "}
+                            <span className="text-[14px] font-sans text-[#e05300]/80">
+                              {activeFocus.satuan_uco || "L/tahun"}
+                            </span>
+                          </>
+                        ) : (
+                          <>
+                            {Number(activeFocus.uco || 0).toLocaleString("id-ID")}{" "}
+                            <span className="text-[14px] font-sans text-[#e05300]/80">Liter/thn</span>
+                          </>
+                        )}
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#111111]">
+                        Estimasi Potensi Biodiesel
+                      </div>
+                      <div className="text-[22px] font-medium text-[#111111] font-serif mt-1">
+                        {"biodiesel_estimate" in activeFocus ? (
+                          <>
+                            {formatDecimal(activeFocus.biodiesel_estimate)}{" "}
+                            <span className="text-[14px] font-sans text-[#444444]">
+                              {activeFocus.satuan_biodiesel || "L/tahun"}
+                            </span>
+                          </>
+                        ) : (
+                          <>
+                            {Number(activeFocus.biodiesel || 0).toLocaleString("id-ID")}{" "}
+                            <span className="text-[14px] font-sans text-[#444444]">Liter/thn</span>
+                          </>
+                        )}
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#16a34a]">
+                        Estimasi Reduksi Emisi
+                      </div>
+                      <div className="text-[22px] font-medium text-[#16a34a] font-serif mt-1">
+                        {"carbon_estimate" in activeFocus ? (
+                          <>
+                            {formatDecimal(activeFocus.carbon_estimate)}{" "}
+                            <span className="text-[14px] font-sans text-[#16a34a]/85">
+                              {activeFocus.satuan_carbon || "Ton CO₂/tahun"}
+                            </span>
+                          </>
+                        ) : (
+                          <>
+                            {Number(activeFocus.carbon || 0).toLocaleString("id-ID")}{" "}
+                            <span className="text-[14px] font-sans text-[#16a34a]/85">Ton CO₂</span>
+                          </>
+                        )}
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              ) : (
+                <div className="mt-16 text-[#666666] text-[14px] leading-[1.7] italic">
+                  Sorot atau klik wilayah di peta untuk memuat data ringkasan sirkularitas 
+                  secara interaktif.
+                </div>
+              )}
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-[#eae6df]">
+              <p className="text-[12px] text-[#666666] leading-relaxed">
+                Peringkat intensitas didasarkan pada tingkat konsumsi minyak goreng per kapita regional.
+              </p>
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section>
   );

@@ -8,19 +8,16 @@
   }
 
   :root {
-    --color-orange: #ff6900;
-    --color-orange-dark: #be7600;
+    --color-orange: #e05300; /* Muted premium editorial amber */
+    --color-orange-dark: #c24100;
     --color-orange-light: #ff7819;
-    --color-text: #191919;
-    --color-text-muted: #303030;
-    --color-border: #e8e8e8;
-    --color-surface: #ffffff;
-    --color-surface-soft: #f7f8fa;
-    --color-surface-alt: #f7f7f7;
-    --color-placeholder: #aeaeae;
-    --shadow-raised: 0 4px 12px rgba(25, 25, 25, 0.08);
-    --shadow-nav: rgba(25, 25, 25, 0.06) 0 6px 16px 0;
-    --shadow-overlay: 0 8px 24px rgba(25, 25, 25, 0.12);
+    --color-text: #111111;
+    --color-text-muted: #444444;
+    --color-border: #e2e8f0;
+    --color-surface: #fcfbf9; /* Warm paper white background */
+    --color-surface-soft: #f4f1eb; /* Warm paper soft card background */
+    --color-surface-alt: #eae6df;
+    --color-placeholder: #a0aec0;
   }
 
   html {
@@ -29,15 +26,18 @@
 
   body {
     margin: 0;
-    font-family: "MiSans Latin", -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, "Helvetica Neue", sans-serif;
-    background:
-      linear-gradient(180deg, rgba(255, 105, 0, 0.04), transparent 240px),
-      var(--color-surface);
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, sans-serif;
+    background-color: var(--color-surface);
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 500;
   }
 
   button,
@@ -53,7 +53,7 @@
   }
 
   ::selection {
-    background: rgba(255, 105, 0, 0.16);
+    background: rgba(224, 83, 0, 0.15);
     color: var(--color-text);
   }
 }
@@ -63,26 +63,27 @@
   top: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(90deg, #ff6900, #ff8733);
+  background: linear-gradient(90deg, #e05300, #ff8733);
   z-index: 9999;
   transition: width 0.1s ease;
 }
 
 @layer components {
   .page-shell {
-    @apply min-h-screen bg-white text-[#191919];
+    @apply min-h-screen text-[#111111];
+    background-color: var(--color-surface);
   }
 
   .page-section {
-    @apply py-16 md:py-20 lg:py-[100px];
+    @apply py-20 md:py-28 lg:py-36;
   }
 
   .page-container {
-    @apply mx-auto w-full max-w-[1440px] px-3 md:px-4 lg:px-8;
+    @apply mx-auto w-full max-w-[1280px] px-6 md:px-8 lg:px-12;
   }
 
   .section-eyebrow {
-    @apply mb-4 inline-flex items-center gap-2 border border-[#E8E8E8] bg-[#F7F7F7] px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-[#303030];
+    @apply mb-4 inline-flex items-center text-[12px] font-bold uppercase tracking-[0.2em] text-[#e05300];
   }
 
   .section-label {
@@ -90,68 +91,63 @@
   }
 
   .section-title {
-    @apply text-[30px] font-bold leading-[1.25] text-[#191919] md:text-[32px];
+    font-family: "Newsreader", Georgia, serif;
+    @apply text-[36px] font-medium leading-[1.15] text-[#111111] md:text-[48px] lg:text-[56px];
   }
 
   .section-subtitle {
-    @apply mt-4 max-w-2xl text-[14px] leading-[1.6] text-[#303030];
+    @apply mt-6 max-w-3xl text-[16px] leading-[1.7] text-[#444444] md:text-[18px];
   }
 
   .surface-card {
-    @apply border border-[#E8E8E8] bg-white;
-    border-radius: 0;
+    @apply border-0 bg-transparent;
   }
 
   .surface-soft {
-    @apply bg-[#F7F8FA];
-    border-radius: 0;
+    @apply bg-[#f4f1eb];
   }
 
   .button-primary {
-    @apply inline-flex items-center justify-center whitespace-nowrap bg-[#191919] px-8 text-[14px] font-normal text-white transition-all duration-200 hover:-translate-y-px hover:bg-black active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-[#AEAEAE];
-    height: 36px;
-    border-radius: 12px;
-    box-shadow: none;
-  }
-
-  .button-primary:hover {
-    box-shadow: 0 4px 12px rgba(25, 25, 25, 0.15);
+    @apply inline-flex items-center justify-center whitespace-nowrap bg-[#111111] px-8 text-[14px] font-medium text-white transition-all duration-200 hover:bg-[#333333] active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-[#AEAEAE];
+    height: 48px;
+    border-radius: 0px; /* Editorial square buttons */
   }
 
   .button-accent {
-    @apply inline-flex items-center justify-center whitespace-nowrap bg-[#FF6900] px-8 text-[14px] font-normal text-white transition-colors duration-200 hover:bg-[#BE7600] active:scale-[0.98];
-    height: 36px;
-    border-radius: 12px;
+    @apply inline-flex items-center justify-center whitespace-nowrap bg-[#e05300] px-8 text-[14px] font-medium text-white transition-all duration-200 hover:bg-[#c24100] active:scale-[0.98];
+    height: 48px;
+    border-radius: 0px;
   }
 
   .button-secondary {
-    @apply inline-flex items-center justify-center bg-transparent px-3 text-[14px] font-normal text-[#191919] transition-colors duration-200 hover:text-[#FF6900];
-    height: 34px;
+    @apply inline-flex items-center justify-center bg-transparent px-1 text-[14px] font-medium text-[#111111] transition-all duration-200 hover:text-[#e05300];
+    height: 48px;
+    border-bottom: 1px solid transparent;
   }
 
   .button-secondary:hover {
-    text-decoration: underline;
+    border-bottom: 1px solid #e05300;
+    text-decoration: none;
   }
 
   .button-ghost {
-    @apply inline-flex items-center justify-center bg-transparent px-3 text-[14px] font-normal text-[#191919] transition-colors duration-200 hover:bg-[#F7F7F7] hover:text-[#FF6900];
+    @apply inline-flex items-center justify-center bg-transparent px-3 text-[14px] font-medium text-[#111111] transition-colors duration-200 hover:bg-[#f4f1eb] hover:text-[#e05300];
     height: 44px;
   }
 
   .input-field {
-    @apply w-full border border-[#E8E8E8] bg-transparent px-4 text-[14px] text-[#191919] outline-none transition-all duration-200 placeholder:text-[#AEAEAE];
-    height: 38px;
-    border-radius: 12px;
+    @apply w-full border-b border-[#eae6df] bg-transparent px-1 py-2 text-[16px] text-[#111111] outline-none transition-all duration-200 placeholder:text-[#a0aec0];
+    height: 48px;
+    border-radius: 0;
   }
 
   .input-field:focus {
-    border-color: #ff6900;
-    box-shadow: 0 0 0 2px rgba(255, 105, 0, 0.1);
+    border-color: #e05300;
   }
 
   .orange-chip {
-    @apply inline-flex items-center bg-[#FF6900] px-2 py-1 text-[12px] font-semibold text-white;
-    border-radius: 4px;
+    @apply inline-flex items-center bg-[#e05300] px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-white;
+    border-radius: 0px;
   }
 }
 
@@ -161,7 +157,7 @@
   }
 
   .text-gradient-green {
-    background: linear-gradient(135deg, #ff6900, #be7600);
+    background: linear-gradient(135deg, #e05300, #c24100);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -169,22 +165,22 @@
 
   .hairline-grid {
     background-image:
-      linear-gradient(rgba(25, 25, 25, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(25, 25, 25, 0.05) 1px, transparent 1px);
-    background-size: 36px 36px;
+      linear-gradient(rgba(17, 17, 17, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17, 17, 17, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 
   .orange-wash {
     background:
-      radial-gradient(circle at top left, rgba(255, 105, 0, 0.16), transparent 28%),
-      radial-gradient(circle at bottom right, rgba(255, 120, 25, 0.12), transparent 32%);
+      radial-gradient(circle at top left, rgba(224, 83, 0, 0.06), transparent 40%),
+      radial-gradient(circle at bottom right, rgba(255, 120, 25, 0.04), transparent 50%);
   }
 }
 
 .province-path {
   cursor: pointer;
-  transition: all 0.2s ease;
-  stroke: #ffffff;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  stroke: #fcfbf9;
   stroke-width: 0.8;
 }
 
@@ -196,7 +192,7 @@
 
 .recharts-cartesian-grid-horizontal line,
 .recharts-cartesian-grid-vertical line {
-  stroke: #e8e8e8;
+  stroke: #eae6df;
 }
 
 .recharts-tooltip-wrapper {
@@ -204,18 +200,18 @@
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f7f7f7;
+  background: #fcfbf9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #191919;
-  border-radius: 3px;
+  background: #111111;
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff6900;
+  background: #e05300;
 }

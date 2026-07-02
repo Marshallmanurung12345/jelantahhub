@@ -1,45 +1,32 @@
 import { motion } from "framer-motion";
 
-const highlights = [
-  { value: "500K+", label: "Liter potensi minyak jelantah yang terpetakan" },
-  { value: "425 Ton", label: "Estimasi reduksi emisi dari skenario biodiesel" },
-  { value: "34", label: "Provinsi dengan ringkasan indikator utama" },
-];
-
-const stats = [
-  { label: "Cakupan", value: "Konsumsi minyak goreng dan estimasi turunannya" },
-  { label: "Indikator", value: "Jelantah, biodiesel, dan reduksi emisi" },
-  { label: "Sifat data", value: "Visualisasi informatif berbasis asumsi simulasi" },
-];
-
 export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden border-b border-[#E8E8E8] bg-white pt-12"
+      className="relative overflow-hidden bg-[#fcfbf9] pt-24 md:pt-32"
     >
       <div className="absolute inset-0 orange-wash" aria-hidden="true" />
-      <div className="page-container relative">
-        <div className="grid min-h-[calc(100vh-48px)] items-center gap-10 py-12 lg:grid-cols-[1.1fr_0.9fr] lg:py-16">
+      <div className="page-container relative z-10">
+        <div className="grid min-h-[75vh] items-center gap-12 py-12 lg:grid-cols-2 lg:py-16">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-[680px]"
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-[620px]"
           >
-            <span className="section-eyebrow">Mikrositus informasi publik</span>
-            <h1 className="text-balance text-[32px] font-bold leading-[1.1] text-[#191919] md:text-[52px] lg:text-[64px]">
-              Atlas Jelantah Indonesia
+            <span className="section-eyebrow">Atlas Jelantah Indonesia</span>
+            <h1 className="text-balance text-[48px] font-medium leading-[1.08] text-[#111111] md:text-[64px] lg:text-[76px]">
+              Minyak Jelantah Menjadi Energi Bersih
             </h1>
-            <p className="mt-6 max-w-[560px] text-[14px] leading-[1.7] text-[#303030] md:text-[16px]">
-              Visualisasi konsumsi minyak goreng, potensi minyak jelantah, dan
-              estimasi dampaknya di Indonesia. Halaman ini dirancang untuk
-              membantu pembaca memahami hubungan antara konsumsi, potensi
-              jelantah, biodiesel, dan reduksi emisi melalui peta serta
-              rangkaian data ringkas.
+            <p className="mt-8 text-[16px] leading-[1.7] text-[#444444] md:text-[18px]">
+              Eksplorasi interaktif tentang potensi minyak jelantah di Indonesia. 
+              Dari limbah dapur rumah tangga menjadi biodiesel ramah lingkungan, 
+              serta perannya dalam mereduksi emisi karbon nasional. Pahami ceritanya 
+              melalui rangkaian data spasial interaktif.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap gap-4">
               <button
                 type="button"
                 onClick={() =>
@@ -55,110 +42,110 @@ export default function HeroSection() {
                 type="button"
                 onClick={() =>
                   document
-                    .getElementById("how-it-works")
+                    .getElementById("problem")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
                 className="button-secondary"
               >
-                Cara Membaca Data
+                Mulai Membaca Cerita ↓
               </button>
-            </div>
-
-            <div className="mt-10 grid gap-px border border-[#E8E8E8] bg-[#E8E8E8] md:grid-cols-3">
-              {highlights.map((item) => (
-                <div key={item.label} className="bg-white p-4 md:p-5">
-                  <div className="text-[24px] font-semibold leading-6 text-[#191919]">
-                    {item.value}
-                  </div>
-                  <p className="mt-2 text-[14px] leading-[1.5] text-[#303030]">
-                    {item.label}
-                  </p>
-                </div>
-              ))}
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 28 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="surface-card relative overflow-hidden"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="relative flex justify-center lg:justify-end"
           >
-            <div className="hairline-grid absolute inset-0 opacity-60" />
-            <div className="absolute left-0 top-0 h-1 w-full bg-[#FF6900]" />
-            <div className="relative grid gap-6 p-6 md:p-8">
-              <div className="flex items-start justify-between gap-4 border-b border-[#E8E8E8] pb-6">
-                <div>
-                  <div className="orange-chip">Ringkasan visualisasi</div>
-                  <h2 className="mt-4 text-[30px] font-bold leading-[1.25] text-[#191919]">
-                    Dari konsumsi ke estimasi potensi.
-                  </h2>
-                  <p className="mt-3 max-w-[420px] text-[14px] leading-[1.6] text-[#303030]">
-                    Visualisasi ini menempatkan data konsumsi sebagai titik
-                    awal pembacaan, lalu menurunkannya ke estimasi minyak
-                    jelantah, biodiesel, dan emisi secara bertahap.
-                  </p>
-                </div>
-                <div className="hidden border border-[#E8E8E8] bg-[#F7F8FA] px-4 py-3 text-right md:block">
-                  <div className="text-[12px] uppercase tracking-[0.14em] text-[#AEAEAE]">
-                    Ringkasan nasional
-                  </div>
-                  <div className="mt-2 text-[24px] font-semibold text-[#191919]">
-                    85%
-                  </div>
-                  <div className="text-[14px] text-[#303030]">estimasi reduksi emisi vs solar fosil</div>
-                </div>
-              </div>
+            <div className="relative w-full max-w-[480px] aspect-square flex items-center justify-center">
+              {/* Custom Editorial SVG Visualizer representing oil to biodiesel sirkularitas */}
+              <svg
+                viewBox="0 0 400 400"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-full h-full"
+              >
+                {/* Concentric subtle background rings */}
+                <circle cx="200" cy="200" r="180" stroke="#eae6df" strokeWidth="1" strokeDasharray="4 4" />
+                <circle cx="200" cy="200" r="140" stroke="#eae6df" strokeWidth="1" />
+                <circle cx="200" cy="200" r="100" stroke="#eae6df" strokeWidth="1" strokeDasharray="8 4" />
 
-              <div className="grid gap-px border border-[#E8E8E8] bg-[#E8E8E8]">
-                {stats.map((item) => (
-                  <div
-                    key={item.label}
-                    className="grid gap-2 bg-white px-4 py-4 md:grid-cols-[120px_1fr]"
-                  >
-                    <div className="text-[12px] uppercase tracking-[0.12em] text-[#AEAEAE]">
-                      {item.label}
-                    </div>
-                    <div className="text-[14px] leading-[1.6] text-[#191919]">
-                      {item.value}
-                    </div>
-                  </div>
-                ))}
-              </div>
+                {/* Animated flowing path (Used Cooking Oil to Clean Energy) */}
+                <motion.path
+                  d="M 60,200 C 60,122.68 122.68,60 200,60 C 277.32,60 340,122.68 340,200 C 340,277.32 277.32,340 200,340 C 122.68,340 60,277.32 60,200 Z"
+                  stroke="url(#heroFlowGradient)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 2.5, ease: "easeInOut", repeat: Infinity, repeatType: "loop" }}
+                />
 
-              <div className="grid gap-4 md:grid-cols-[1.15fr_0.85fr]">
-                <div className="surface-soft p-5">
-                  <div className="text-[12px] uppercase tracking-[0.12em] text-[#AEAEAE]">
-                    Fokus pembacaan
-                  </div>
-                  <p className="mt-3 text-[24px] font-semibold leading-7 text-[#191919]">
-                    Data konsumsi rumah tangga dibaca sebagai dasar untuk
-                    memperkirakan besaran potensi energi dan dampak lingkungan.
-                  </p>
-                </div>
-                <div className="bg-[#191919] p-5 text-white">
-                  <div className="text-[12px] uppercase tracking-[0.12em] text-white/60">
-                    Isi utama
-                  </div>
-                  <p className="mt-3 text-[16px] leading-6">
-                    Peta interaktif, peringkat wilayah, kalkulator sederhana,
-                    dan simulasi waktu dipakai untuk memberi konteks yang lebih
-                    mudah dipahami publik umum.
-                  </p>
-                  <div className="mt-5">
-                    <button
-                      type="button"
-                      onClick={() =>
-                        document
-                          .getElementById("calculator")
-                          ?.scrollIntoView({ behavior: "smooth" })
-                      }
-                      className="inline-flex h-9 items-center justify-center bg-white px-5 text-[14px] text-[#191919] transition-colors hover:bg-[#F7F7F7]"
-                    >
-                      Lihat Ringkasan Data
-                    </button>
-                  </div>
-                </div>
+                {/* Node 1: Waste Oil (Amber/Yellow) */}
+                <g>
+                  <circle cx="60" cy="200" r="18" fill="#fcfbf9" stroke="#e05300" strokeWidth="1.5" />
+                  <motion.circle
+                    cx="60"
+                    cy="200"
+                    r="8"
+                    fill="#e05300"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  />
+                  <text x="60" y="235" textAnchor="middle" fill="#111111" fontSize="11" fontWeight="600" letterSpacing="0.1em">LIMBAH UCO</text>
+                </g>
+
+                {/* Node 2: Biodiesel conversion (Golden Amber) */}
+                <g>
+                  <circle cx="200" cy="60" r="18" fill="#fcfbf9" stroke="#ff7819" strokeWidth="1.5" />
+                  <motion.circle
+                    cx="200"
+                    cy="60"
+                    r="8"
+                    fill="#ff7819"
+                    animate={{ scale: [1, 1.3, 1] }}
+                    transition={{ duration: 3, delay: 1, repeat: Infinity }}
+                  />
+                  <text x="200" y="38" textAnchor="middle" fill="#111111" fontSize="11" fontWeight="600" letterSpacing="0.1em">BIODIESEL</text>
+                </g>
+
+                {/* Node 3: Clean Environment (Green/Eco) */}
+                <g>
+                  <circle cx="340" cy="200" r="18" fill="#fcfbf9" stroke="#16a34a" strokeWidth="1.5" />
+                  <motion.circle
+                    cx="340"
+                    cy="200"
+                    r="8"
+                    fill="#16a34a"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 3, delay: 2, repeat: Infinity }}
+                  />
+                  <text x="340" y="235" textAnchor="middle" fill="#111111" fontSize="11" fontWeight="600" letterSpacing="0.1em">ENERGI BERSIH</text>
+                </g>
+
+                {/* Decorative center icon or element */}
+                <g>
+                  <circle cx="200" cy="200" r="32" fill="#eae6df" />
+                  <path d="M194 206L200 212L212 200M188 194L200 182L206 188" stroke="#111111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="200" cy="200" r="42" stroke="#e05300" strokeWidth="0.5" strokeDasharray="4 2" />
+                </g>
+
+                {/* Gradients */}
+                <defs>
+                  <linearGradient id="heroFlowGradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#e05300" />
+                    <stop offset="50%" stopColor="#ff7819" />
+                    <stop offset="100%" stopColor="#16a34a" />
+                  </linearGradient>
+                </defs>
+              </svg>
+
+              {/* Absolute background card element replaced with decorative label */}
+              <div className="absolute -bottom-4 -left-4 bg-[#f4f1eb] p-6 max-w-[200px] hidden md:block">
+                <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[#e05300]">TEMUAN UTAMA</p>
+                <p className="text-[20px] font-medium text-[#111111] leading-tight mt-2 font-serif">85% Reduksi Emisi</p>
+                <p className="text-[12px] text-[#444444] mt-1">dibandingkan dengan penggunaan solar fosil standar.</p>
               </div>
             </div>
           </motion.div>
