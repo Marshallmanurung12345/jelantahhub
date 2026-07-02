@@ -11,14 +11,13 @@ export function useCountUp(end, duration = 2000, separator = '.') {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const startedRef = useRef(false);
 
   useEffect(() => {
-    if (!isInView || startedRef.current) return;
-    startedRef.current = true;
+    if (!isInView) return;
 
     let startTime = null;
     const startVal = 0;
+    let animId = null;
 
     const step = (timestamp) => {
       if (!startTime) startTime = timestamp;
@@ -26,11 +25,17 @@ export function useCountUp(end, duration = 2000, separator = '.') {
       // Ease out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(eased * (end - startVal) + startVal));
-      if (progress < 1) requestAnimationFrame(step);
-      else setCount(end);
+      if (progress < 1) {
+        animId = requestAnimationFrame(step);
+      } else {
+        setCount(end);
+      }
     };
 
-    requestAnimationFrame(step);
+    animId = requestAnimationFrame(step);
+    return () => {
+      if (animId) cancelAnimationFrame(animId);
+    };
   }, [isInView, end, duration]);
 
   const formatted = count.toLocaleString('id-ID').replace(/\./g, separator);

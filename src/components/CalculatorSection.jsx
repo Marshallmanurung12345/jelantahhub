@@ -10,7 +10,13 @@ function calcResults(liters) {
 }
 
 function ResultRow({ label, value, unit }) {
-  const { ref, formatted } = useCountUp(Math.floor(value), 1200);
+  const isFloat = value % 1 !== 0;
+  const targetValue = isFloat ? Math.round(value * 10) : Math.round(value);
+  const { ref, raw } = useCountUp(targetValue, 1200);
+
+  const displayValue = isFloat
+    ? (raw / 10).toLocaleString("id-ID", { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+    : raw.toLocaleString("id-ID");
 
   return (
     <div ref={ref} className="flex flex-col md:flex-row md:items-baseline md:justify-between py-6 border-b border-[#eae6df]">
@@ -19,7 +25,7 @@ function ResultRow({ label, value, unit }) {
       </span>
       <div className="flex items-baseline gap-2 mt-2 md:mt-0 md:w-2/3 md:justify-end">
         <span className="text-[36px] font-medium leading-none text-[#111111] font-serif md:text-[48px]">
-          {formatted}
+          {displayValue}
         </span>
         <span className="text-[15px] font-sans text-[#444444]">{unit}</span>
       </div>
