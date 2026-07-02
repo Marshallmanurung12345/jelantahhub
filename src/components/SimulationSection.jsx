@@ -16,13 +16,16 @@ function CustomTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null;
 
   return (
-    <div className="surface-card p-4 text-[14px] shadow-[0_8px_24px_rgba(25,25,25,0.12)]">
-      <p className="font-bold text-[#191919]">{label}</p>
-      <div className="mt-3 space-y-2">
+    <div className="bg-[#fcfbf9]/95 backdrop-blur-md p-4 border border-[#eae6df] shadow-lg text-[13px]">
+      <p className="font-bold text-[#111111] font-serif border-b border-[#eae6df] pb-1.5 mb-2">Tahun {label}</p>
+      <div className="space-y-1">
         {payload.map((entry) => (
-          <p key={entry.name} style={{ color: entry.color }}>
-            {entry.name}: {entry.value.toLocaleString("id-ID")}
-          </p>
+          <div key={entry.name} className="flex justify-between items-baseline gap-6">
+            <span className="text-[#666666]">{entry.name}</span>
+            <span className="font-medium text-[#111111] font-serif">
+              {entry.value.toLocaleString("id-ID")} L
+            </span>
+          </div>
         ))}
       </div>
     </div>
@@ -156,34 +159,43 @@ export default function SimulationSection() {
                           : value
                     }
                   />
-                  <Tooltip content={<CustomTooltip />} />
+                  <Tooltip content={<CustomTooltip />} cursor={{ stroke: "#eae6df", strokeWidth: 1 }} />
                   <Legend wrapperStyle={{ fontSize: "12px", color: "#111111", paddingTop: "20px" }} />
                   <Area
                     type="monotone"
                     dataKey="uco"
                     name="Estimasi UCO"
                     stroke="#111111"
-                    strokeWidth={1.5}
+                    strokeWidth={1.75}
                     fill="url(#gradUco)"
-                    dot={{ r: 2, fill: "#111111" }}
+                    dot={{ r: 1.5, fill: "#111111" }}
+                    activeDot={{ r: 5, stroke: "#111111", strokeWidth: 2, fill: "#fcfbf9" }}
+                    isAnimationActive={true}
+                    animationDuration={800}
                   />
                   <Area
                     type="monotone"
                     dataKey="biodiesel"
                     name="Potensi biodiesel"
                     stroke="#e05300"
-                    strokeWidth={1.5}
+                    strokeWidth={1.75}
                     fill="url(#gradBio)"
-                    dot={{ r: 2, fill: "#e05300" }}
+                    dot={{ r: 1.5, fill: "#e05300" }}
+                    activeDot={{ r: 5, stroke: "#e05300", strokeWidth: 2, fill: "#fcfbf9" }}
+                    isAnimationActive={true}
+                    animationDuration={800}
                   />
                   <Area
                     type="monotone"
                     dataKey="carbon"
                     name="Karbon dihemat"
                     stroke="#b95213"
-                    strokeWidth={1.5}
+                    strokeWidth={1.75}
                     fill="url(#gradCarbon)"
-                    dot={{ r: 2, fill: "#b95213" }}
+                    dot={{ r: 1.5, fill: "#b95213" }}
+                    activeDot={{ r: 5, stroke: "#b95213", strokeWidth: 2, fill: "#fcfbf9" }}
+                    isAnimationActive={true}
+                    animationDuration={800}
                   />
                 </AreaChart>
               </ResponsiveContainer>

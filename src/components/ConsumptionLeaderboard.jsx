@@ -78,6 +78,12 @@ export default function ConsumptionLeaderboard() {
     return sum / filteredData.length;
   }, [filteredData]);
 
+  // Compute maximum value in dataset for visual progress bar normalization
+  const maxWeeklyConsumption = useMemo(() => {
+    if (!flatRegional.length) return 0.5;
+    return Math.max(...flatRegional.map((item) => Number(item.konsumsi_minyak_goreng_perkapita_minggu ?? 0)), 0.1);
+  }, [flatRegional]);
+
   return (
     <section id="leaderboard" className="page-section bg-[#fcfbf9] border-t border-[#eae6df]">
       <div className="page-container">
@@ -155,20 +161,36 @@ export default function ConsumptionLeaderboard() {
               </div>
 
               <div className="space-y-6">
-                {highestFive.map((item, index) => (
-                  <div key={`high-${item.name}-${index}`} className="flex justify-between items-start">
-                    <div>
-                      <h4 className="text-[14px] font-bold text-[#111111]">{item.name}</h4>
-                      <p className="text-[11px] text-[#666666] uppercase mt-0.5">{item.province_name}</p>
+                {highestFive.map((item, index) => {
+                  const barWidth = `${Math.min((Number(item.konsumsi_minyak_goreng_perkapita_minggu) / maxWeeklyConsumption) * 100, 100)}%`;
+                  return (
+                    <div key={`high-${item.name}-${index}`} className="group">
+                      <div className="flex justify-between items-baseline">
+                        <div>
+                          <span className="text-[11px] font-bold text-[#e05300] mr-2">#{index + 1}</span>
+                          <span className="text-[14px] font-bold text-[#111111]">{item.name}</span>
+                          <span className="text-[11px] text-[#666666] ml-2">({item.province_name})</span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-[15px] font-medium text-[#111111] font-serif">
+                            {formatValue(item.konsumsi_minyak_goreng_perkapita_minggu)}
+                          </span>
+                          <span className="text-[9px] text-[#666666] uppercase ml-1">L/org</span>
+                        </div>
+                      </div>
+                      {/* Mini visual progress bar */}
+                      <div className="w-full h-1 bg-[#eae6df] mt-2 relative overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: barWidth }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, ease: "easeOut" }}
+                          className="h-full bg-[#e05300]"
+                        />
+                      </div>
                     </div>
-                    <div className="text-right">
-                      <span className="text-[16px] font-medium text-[#111111] font-serif">
-                        {formatValue(item.konsumsi_minyak_goreng_perkapita_minggu)}
-                      </span>
-                      <p className="text-[9px] text-[#666666] uppercase mt-0.5">L/org/mg</p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
@@ -182,20 +204,36 @@ export default function ConsumptionLeaderboard() {
               </div>
 
               <div className="space-y-6">
-                {lowestFive.map((item, index) => (
-                  <div key={`low-${item.name}-${index}`} className="flex justify-between items-start">
-                    <div>
-                      <h4 className="text-[14px] font-bold text-[#111111]">{item.name}</h4>
-                      <p className="text-[11px] text-[#666666] uppercase mt-0.5">{item.province_name}</p>
+                {lowestFive.map((item, index) => {
+                  const barWidth = `${Math.min((Number(item.konsumsi_minyak_goreng_perkapita_minggu) / maxWeeklyConsumption) * 100, 100)}%`;
+                  return (
+                    <div key={`low-${item.name}-${index}`} className="group">
+                      <div className="flex justify-between items-baseline">
+                        <div>
+                          <span className="text-[11px] font-bold text-[#666666] mr-2">#{index + 1}</span>
+                          <span className="text-[14px] font-bold text-[#111111]">{item.name}</span>
+                          <span className="text-[11px] text-[#666666] ml-2">({item.province_name})</span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-[15px] font-medium text-[#111111] font-serif">
+                            {formatValue(item.konsumsi_minyak_goreng_perkapita_minggu)}
+                          </span>
+                          <span className="text-[9px] text-[#666666] uppercase ml-1">L/org</span>
+                        </div>
+                      </div>
+                      {/* Mini visual progress bar */}
+                      <div className="w-full h-1 bg-[#eae6df] mt-2 relative overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: barWidth }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, ease: "easeOut" }}
+                          className="h-full bg-[#444444]"
+                        />
+                      </div>
                     </div>
-                    <div className="text-right">
-                      <span className="text-[16px] font-medium text-[#111111] font-serif">
-                        {formatValue(item.konsumsi_minyak_goreng_perkapita_minggu)}
-                      </span>
-                      <p className="text-[9px] text-[#666666] uppercase mt-0.5">L/org/mg</p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 

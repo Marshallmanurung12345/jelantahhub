@@ -27,28 +27,31 @@ function ResultRow({ label, value, unit }) {
   );
 }
 
-export default function CalculatorSection() {
-  const [liters, setLiters] = useState("");
-  const [results, setResults] = useState(null);
-  const [error, setError] = useState("");
-  const [calcKey, setCalcKey] = useState(0);
+import { useMemo } from "react";
 
-  const handleCalculate = () => {
+export default function CalculatorSection() {
+  const [liters, setLiters] = useState("5");
+
+  // Reactive calculation logic
+  const results = useMemo(() => {
     const value = parseFloat(liters);
-    if (!value || value <= 0) {
-      setError("Silakan masukkan volume minyak yang valid.");
-      setResults(null);
-      return;
+    if (isNaN(value) || value <= 0 || value > 10000000) {
+      return null;
+    }
+    return calcResults(value);
+  }, [liters]);
+
+  const error = useMemo(() => {
+    if (!liters) return "";
+    const value = parseFloat(liters);
+    if (isNaN(value) || value <= 0) {
+      return "Silakan masukkan volume minyak yang valid.";
     }
     if (value > 10000000) {
-      setError("Maksimum batas kalkulasi adalah 10.000.000 liter.");
-      return;
+      return "Maksimum batas kalkulasi adalah 10.000.000 liter.";
     }
-
-    setError("");
-    setResults(calcResults(value));
-    setCalcKey((current) => current + 1);
-  };
+    return "";
+  }, [liters]);
 
   return (
     <section id="calculator" className="page-section bg-[#fcfbf9] border-t border-[#eae6df]">
@@ -65,66 +68,48 @@ export default function CalculatorSection() {
           <span className="section-eyebrow">Simulasi Dampak Mandiri</span>
           <h2 className="section-title">Kalkulator Dampak Lingkungan</h2>
           <p className="section-subtitle mx-auto">
-            Kalkulasikan kontribusi Anda sendiri. Terjemahkan volume minyak sisa 
+            Kalkulasikan kontribusi Anda sendiri secara langsung. Terjemahkan volume minyak sisa 
             yang Anda miliki menjadi nilai manfaat biodiesel dan emisi karbon yang dapat dihemat.
           </p>
         </motion.div>
 
-        {/* Sentence Form */}
+        {/* Conversational Sentence Form */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-[#f4f1eb] p-8 md:p-12 border border-[#eae6df] text-center"
+          className="bg-[#f4f1eb] p-10 md:p-14 border border-[#eae6df] text-center"
         >
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 text-[18px] md:text-[22px] font-medium text-[#111111] font-serif leading-relaxed">
-            <span>Jika kami mengumpulkan</span>
-            <div className="relative inline-block w-full sm:w-[160px]">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 text-[20px] md:text-[24px] font-medium text-[#111111] font-serif leading-relaxed">
+            <span>Jika saya memiliki</span>
+            <div className="relative inline-block w-full sm:w-[150px]">
               <input
                 id="uco-input"
                 type="number"
                 min="0"
                 max="10000000"
                 value={liters}
-                onChange={(event) => {
-                  setLiters(event.target.value);
-                  setResults(null);
-                  setError("");
-                }}
-                onKeyDown={(event) => event.key === "Enter" && handleCalculate()}
-                placeholder="0"
-                className="w-full text-center border-b border-[#111111] bg-transparent pb-1 text-[22px] md:text-[26px] font-serif focus:border-[#e05300] outline-none"
+                onChange={(event) => setLiters(event.target.value)}
+                placeholder="5"
+                className="w-full text-center border-b-2 border-[#111111] bg-transparent pb-1 text-[24px] md:text-[28px] font-serif font-bold focus:border-[#e05300] outline-none text-[#e05300] transition-colors duration-200"
               />
             </div>
-            <span>liter minyak jelantah sisa dapur,</span>
+            <span>liter minyak jelantah,</span>
+          </div>
+          <div className="mt-4 text-[18px] md:text-[22px] font-serif font-medium text-[#111111]">
+            berapa dampaknya bagi lingkungan?
           </div>
 
-          <div className="mt-8 flex flex-col items-center gap-3">
-            <button
-              type="button"
-              onClick={handleCalculate}
-              className="button-accent px-10 text-[13px] tracking-widest uppercase font-bold"
-            >
-              Hitung Dampak
-            </button>
-            {error ? (
-              <p className="text-[13px] text-[#b95213] font-medium mt-2">{error}</p>
-            ) : null}
-          </div>
+          {error ? (
+            <p className="text-[13px] text-[#b95213] font-medium mt-6">{error}</p>
+          ) : null}
         </motion.div>
 
-        {/* Results Area */}
-        <AnimatePresence mode="wait">
+        {/* Results Area - Always visible when results are valid */}
+        <div className="mt-12 border-t border-[#eae6df] pt-4">
           {results ? (
-            <motion.div
-              key={calcKey}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="mt-12 border-t border-[#eae6df] pt-4"
-            >
+            <div>
               <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#e05300] mb-4">
                 Estimasi Kontribusi Energi Bersih
               </div>
@@ -145,9 +130,13 @@ export default function CalculatorSection() {
                   unit="pohon / tahun"
                 />
               </div>
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
+            </div>
+          ) : (
+            <div className="text-center py-10 text-[#666666] italic text-[14px]">
+              Menunggu input volume minyak yang valid untuk menghitung dampak...
+            </div>
+          )}
+        </div>
 
       </div>
     </section>

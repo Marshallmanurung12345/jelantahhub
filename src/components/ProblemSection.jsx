@@ -74,7 +74,7 @@ export default function ProblemSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full flex items-center justify-center bg-[#f4f1eb] p-8 md:p-12 aspect-[4/5] relative overflow-hidden"
+            className="w-full flex items-center justify-center bg-[#f4f1eb] p-10 md:p-16 aspect-square relative overflow-hidden"
           >
             <div className="absolute inset-0 hairline-grid opacity-30 pointer-events-none" />
             
@@ -82,7 +82,7 @@ export default function ProblemSection() {
               viewBox="0 0 320 400"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="w-full h-full max-w-[280px]"
+              className="w-full h-full max-w-[320px]"
             >
               {/* Flow representing water pollution on top/left vs clean energy on right */}
               {/* Flow Path 1 - Waste Path */}
@@ -107,14 +107,14 @@ export default function ProblemSection() {
                 {/* Abstract oil droplets in water */}
                 <path d="M54 75 C54 70, 66 70, 66 75 C66 82, 54 82, 54 75" fill="#e05300" opacity="0.8" />
                 <path d="M58 84 C58 81, 62 81, 62 84 C62 87, 58 87, 58 84" fill="#ff7819" />
-                <text x="60" y="125" textAnchor="middle" fill="#111111" fontSize="10" fontWeight="700" letterSpacing="0.1em">CEMAR AIR</text>
+                <text x="60" y="125" textAnchor="middle" fill="#111111" fontSize="9" fontWeight="700" letterSpacing="0.12em" className="font-sans">CEMAR AIR</text>
               </g>
 
               {/* River/Drainage block (Middle left) */}
               <g>
                 <circle cx="120" cy="220" r="24" fill="#fcfbf9" stroke="#111111" strokeWidth="1" />
                 <path d="M112 216 H128 M112 220 H128 M112 224 H128" stroke="#111111" strokeWidth="1.5" />
-                <text x="120" y="260" textAnchor="middle" fill="#111111" fontSize="10" fontWeight="700" letterSpacing="0.1em">SALURAN</text>
+                <text x="120" y="260" textAnchor="middle" fill="#111111" fontSize="9" fontWeight="700" letterSpacing="0.12em" className="font-sans">SALURAN</text>
               </g>
 
               {/* Biodiesel leaf (Right/Bottom) */}
@@ -123,15 +123,15 @@ export default function ProblemSection() {
                 {/* Leaf icon */}
                 <path d="M190 268C190 252 210 248 210 248C210 248 206 268 190 268Z" fill="#16a34a" />
                 <path d="M210 248L190 268" stroke="#fcfbf9" strokeWidth="1.5" />
-                <text x="200" y="310" textAnchor="middle" fill="#111111" fontSize="10" fontWeight="700" letterSpacing="0.1em">BIODIESEL</text>
+                <text x="200" y="310" textAnchor="middle" fill="#111111" fontSize="9" fontWeight="700" letterSpacing="0.12em" className="font-sans">BIODIESEL</text>
               </g>
 
-              <text x="160" y="20" textAnchor="middle" fill="#444444" fontSize="11" fontWeight="500" letterSpacing="0.15em">RUTE LIMBAH VS ENERGI</text>
+              <text x="160" y="20" textAnchor="middle" fill="#666666" fontSize="10" fontWeight="700" letterSpacing="0.15em" className="font-sans">RUTE LIMBAH VS ENERGI</text>
             </svg>
 
-            {/* Caption Overlay */}
-            <div className="absolute bottom-4 right-4 bg-[#fcfbf9] px-4 py-2 border border-[#eae6df]">
-              <span className="text-[11px] font-bold text-[#111111] uppercase tracking-wider">Visualisasi Sirkularitas</span>
+            {/* Caption Overlay - Minimalist without borders */}
+            <div className="absolute bottom-6 right-6 text-[10px] font-bold text-[#666666] uppercase tracking-[0.15em]">
+              Sirkularitas Jelantah
             </div>
           </motion.div>
 

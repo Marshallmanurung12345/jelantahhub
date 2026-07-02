@@ -59,79 +59,93 @@ export default function HeroSection() {
             className="relative flex justify-center lg:justify-end"
           >
             <div className="relative w-full max-w-[480px] aspect-square flex items-center justify-center">
-              {/* Custom Editorial SVG Visualizer representing oil to biodiesel sirkularitas */}
+              {/* Premium Animated SVG representing fluid energy sirkularitas */}
               <svg
                 viewBox="0 0 400 400"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-full h-full"
               >
-                {/* Concentric subtle background rings */}
-                <circle cx="200" cy="200" r="180" stroke="#eae6df" strokeWidth="1" strokeDasharray="4 4" />
-                <circle cx="200" cy="200" r="140" stroke="#eae6df" strokeWidth="1" />
-                <circle cx="200" cy="200" r="100" stroke="#eae6df" strokeWidth="1" strokeDasharray="8 4" />
+                {/* Editorial grid lines background */}
+                <circle cx="200" cy="200" r="170" stroke="#eae6df" strokeWidth="1" strokeDasharray="4 4" />
+                <circle cx="200" cy="200" r="130" stroke="#eae6df" strokeWidth="0.75" />
+                <circle cx="200" cy="200" r="90" stroke="#eae6df" strokeWidth="1" strokeDasharray="8 6" />
 
-                {/* Animated flowing path (Used Cooking Oil to Clean Energy) */}
-                <motion.path
-                  d="M 60,200 C 60,122.68 122.68,60 200,60 C 277.32,60 340,122.68 340,200 C 340,277.32 277.32,340 200,340 C 122.68,340 60,277.32 60,200 Z"
-                  stroke="url(#heroFlowGradient)"
-                  strokeWidth="3"
+                {/* Flowing Path: Clean continuous oval track */}
+                <path
+                  d="M 70,200 C 70,100 130,60 200,60 C 270,60 330,100 330,200 C 330,300 270,340 200,340 C 130,340 70,300 70,200 Z"
+                  stroke="#eae6df"
+                  strokeWidth="2"
                   strokeLinecap="round"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 2.5, ease: "easeInOut", repeat: Infinity, repeatType: "loop" }}
+                />
+
+                {/* Animated active energy flow lines */}
+                <motion.path
+                  d="M 70,200 C 70,100 130,60 200,60 C 270,60 330,100 330,200 C 330,300 270,340 200,340 C 130,340 70,300 70,200 Z"
+                  stroke="url(#heroFlowGradient)"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  strokeDasharray="80 120"
+                  animate={{ strokeDashoffset: [-400, 0] }}
+                  transition={{ duration: 6, ease: "linear", repeat: Infinity }}
                 />
 
                 {/* Node 1: Waste Oil (Amber/Yellow) */}
                 <g>
-                  <circle cx="60" cy="200" r="18" fill="#fcfbf9" stroke="#e05300" strokeWidth="1.5" />
+                  <circle cx="70" cy="200" r="14" fill="#fcfbf9" stroke="#e05300" strokeWidth="1.5" />
                   <motion.circle
-                    cx="60"
+                    cx="70"
                     cy="200"
-                    r="8"
+                    r="6"
                     fill="#e05300"
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 3, repeat: Infinity }}
+                    animate={{ scale: [1, 1.25, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                   />
-                  <text x="60" y="235" textAnchor="middle" fill="#111111" fontSize="11" fontWeight="600" letterSpacing="0.1em">LIMBAH UCO</text>
+                  <text x="70" y="235" textAnchor="middle" fill="#111111" fontSize="10" fontWeight="700" letterSpacing="0.1em" className="font-sans">LIMBAH UCO</text>
                 </g>
 
                 {/* Node 2: Biodiesel conversion (Golden Amber) */}
                 <g>
-                  <circle cx="200" cy="60" r="18" fill="#fcfbf9" stroke="#ff7819" strokeWidth="1.5" />
+                  <circle cx="200" cy="60" r="14" fill="#fcfbf9" stroke="#ff7819" strokeWidth="1.5" />
                   <motion.circle
                     cx="200"
                     cy="60"
-                    r="8"
+                    r="6"
                     fill="#ff7819"
                     animate={{ scale: [1, 1.3, 1] }}
-                    transition={{ duration: 3, delay: 1, repeat: Infinity }}
+                    transition={{ duration: 2.2, delay: 0.5, repeat: Infinity, ease: "easeInOut" }}
                   />
-                  <text x="200" y="38" textAnchor="middle" fill="#111111" fontSize="11" fontWeight="600" letterSpacing="0.1em">BIODIESEL</text>
+                  <text x="200" y="38" textAnchor="middle" fill="#111111" fontSize="10" fontWeight="700" letterSpacing="0.1em" className="font-sans">BIODIESEL</text>
                 </g>
 
                 {/* Node 3: Clean Environment (Green/Eco) */}
                 <g>
-                  <circle cx="340" cy="200" r="18" fill="#fcfbf9" stroke="#16a34a" strokeWidth="1.5" />
+                  <circle cx="330" cy="200" r="14" fill="#fcfbf9" stroke="#16a34a" strokeWidth="1.5" />
                   <motion.circle
-                    cx="340"
+                    cx="330"
                     cy="200"
-                    r="8"
+                    r="6"
                     fill="#16a34a"
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 3, delay: 2, repeat: Infinity }}
+                    animate={{ scale: [1, 1.25, 1] }}
+                    transition={{ duration: 2.4, delay: 1, repeat: Infinity, ease: "easeInOut" }}
                   />
-                  <text x="340" y="235" textAnchor="middle" fill="#111111" fontSize="11" fontWeight="600" letterSpacing="0.1em">ENERGI BERSIH</text>
+                  <text x="330" y="235" textAnchor="middle" fill="#111111" fontSize="10" fontWeight="700" letterSpacing="0.1em" className="font-sans">ENERGI BERSIH</text>
                 </g>
 
-                {/* Decorative center icon or element */}
+                {/* Center abstract geometry */}
                 <g>
-                  <circle cx="200" cy="200" r="32" fill="#eae6df" />
-                  <path d="M194 206L200 212L212 200M188 194L200 182L206 188" stroke="#111111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <circle cx="200" cy="200" r="42" stroke="#e05300" strokeWidth="0.5" strokeDasharray="4 2" />
+                  <circle cx="200" cy="200" r="32" fill="#eae6df" opacity="0.6" />
+                  <circle cx="200" cy="200" r="42" stroke="#e05300" strokeWidth="0.5" strokeDasharray="3 2" />
+                  <motion.path
+                    d="M 188,200 L 212,200 M 200,188 L 200,212"
+                    stroke="#111111"
+                    strokeWidth="1.5"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 12, ease: "linear", repeat: Infinity }}
+                    style={{ transformOrigin: "200px 200px" }}
+                  />
                 </g>
 
-                {/* Gradients */}
                 <defs>
                   <linearGradient id="heroFlowGradient" x1="0" y1="0" x2="1" y2="1">
                     <stop offset="0%" stopColor="#e05300" />
@@ -141,11 +155,10 @@ export default function HeroSection() {
                 </defs>
               </svg>
 
-              {/* Absolute background card element replaced with decorative label */}
-              <div className="absolute -bottom-4 -left-4 bg-[#f4f1eb] p-6 max-w-[200px] hidden md:block">
-                <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[#e05300]">TEMUAN UTAMA</p>
+              <div className="absolute -bottom-4 -left-4 bg-[#f4f1eb] p-6 max-w-[200px] hidden md:block border border-[#eae6df]">
+                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#e05300]">TEMUAN UTAMA</p>
                 <p className="text-[20px] font-medium text-[#111111] leading-tight mt-2 font-serif">85% Reduksi Emisi</p>
-                <p className="text-[12px] text-[#444444] mt-1">dibandingkan dengan penggunaan solar fosil standar.</p>
+                <p className="text-[12px] text-[#444444] mt-1.5 leading-relaxed">dibandingkan dengan penggunaan solar fosil standar.</p>
               </div>
             </div>
           </motion.div>
