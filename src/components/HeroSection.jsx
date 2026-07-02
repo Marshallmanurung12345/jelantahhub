@@ -79,15 +79,15 @@ export default function HeroSection() {
                   strokeLinecap="round"
                 />
 
-                {/* Animated active energy flow lines */}
+                {/* Animated active energy flow lines: Draws from UCO -> Biodiesel -> Energi Bersih */}
                 <motion.path
-                  d="M 70,200 C 70,100 130,60 200,60 C 270,60 330,100 330,200 C 330,300 270,340 200,340 C 130,340 70,300 70,200 Z"
+                  d="M 70,200 C 70,100 130,60 200,60 C 270,60 330,100 330,200"
                   stroke="url(#heroFlowGradient)"
                   strokeWidth="3.5"
                   strokeLinecap="round"
-                  strokeDasharray="80 120"
-                  animate={{ strokeDashoffset: [-400, 0] }}
-                  transition={{ duration: 6, ease: "linear", repeat: Infinity }}
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 3, ease: "easeInOut", repeat: Infinity, repeatDelay: 1 }}
                 />
 
                 {/* Node 1: Waste Oil (Amber/Yellow) */}
@@ -136,14 +136,26 @@ export default function HeroSection() {
                 <g>
                   <circle cx="200" cy="200" r="32" fill="#eae6df" opacity="0.6" />
                   <circle cx="200" cy="200" r="42" stroke="#e05300" strokeWidth="0.5" strokeDasharray="3 2" />
-                  <motion.path
-                    d="M 188,200 L 212,200 M 200,188 L 200,212"
+                  {/* Oil droplet outline icon */}
+                  <path
+                    d="M 200,180 C 200,180 210,192 210,199 A 10 10 0 0 1 190,199 C 190,192 200,180 200,180 Z"
                     stroke="#111111"
                     strokeWidth="1.5"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 12, ease: "linear", repeat: Infinity }}
-                    style={{ transformOrigin: "200px 200px" }}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
+                  <text
+                    x="200"
+                    y="218"
+                    textAnchor="middle"
+                    fill="#111111"
+                    fontSize="7"
+                    fontWeight="800"
+                    letterSpacing="0.08em"
+                    className="font-sans"
+                  >
+                    PROSES SIRKULAR
+                  </text>
                 </g>
 
                 <defs>
